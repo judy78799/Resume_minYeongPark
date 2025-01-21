@@ -1,0 +1,18 @@
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+body {
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+}
+.header {
+    background-color: #C6BAAA;
+    display: flex;
+    width: 100vw;
+    height: 110px;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'S-CoreDream-3Light';
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
