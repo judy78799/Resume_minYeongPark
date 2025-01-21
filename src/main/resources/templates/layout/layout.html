@@ -2,17 +2,19 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>레이아웃 입니다.</title>
-</head>
+    <title>박민영의 이력서입니다.</title>
+
     <th:block layout:fragment="script"></th:block>
     <th:block layout:fragment="css"></th:block>
+
+    <!-- header와 footer 위에 넣기 -->
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <link rel="stylesheet" th:href="@{/css/common.css}">
+</head>
 <body>
-    <div th:replace="fragments/header::header"></div>
-    <div layout:fragment="content" class="content"></div>
-    <div th:replace="fragments/footer::footer"></div>
+<div th:replace="fragments/header::header"></div>
+<div layout:fragments="content" class="content"></div>
+<div th:replace="fragments/footer::footer"></div>
 </body>
-
 </html>
