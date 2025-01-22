@@ -5,16 +5,21 @@ body {
     box-sizing:border-box;
 }
 .header {
-    background-color: black;
     display: flex;
     width: 100vw;
-    height: 110px;
+    height: 50px;
+    background-color: black;
+    font-family: 'S-CoreDream-3Light';
+    font-size: 1vw;
+    font-weight: bold;
+    color:white;
+    padding:1vw;
+}
+.header_contents{
+    width:98vw;
+    display:flex;
     align-items: center;
     justify-content: space-between;
-    font-family: 'S-CoreDream-3Light';
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
 }
 .my_logo{
     font-size: 1vw;

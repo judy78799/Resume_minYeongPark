@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec=xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link rel="stylesheet" th:href="@{/css/common.css}">
+<link rel="stylesheet" th:href="@{/css/header.css}">
+
 <div th:fragment="header" class="header">
-    <a href="/" class="my_logo">
-        박민영의 이력서.
-    </a>
-    박민영의 이력서.
+    <div class="header_contents">
+        <h2>박민영의 이력서 입니다.</h2>
+        <p>all rights reserved</p>
+    </div>
+<!--        <a href="/" class="my_logo">-->
+<!--            박민영의 이력서.-->
+<!--        </a>-->
 </div>
 </html>

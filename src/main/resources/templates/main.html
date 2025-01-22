@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
-<div th:replace="fragments/header::header" class="header">
-
-</div>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<div th:replace="fragments/header::header" class="header"></div>
 <div layout:fragment="content">
     <h1>박민영의 이력서</h1>
     <a href = "/hello">hello</a>
 </div>
+<div th:replace="fragments/footer::footer"></div>
 </html>
