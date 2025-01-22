@@ -4,10 +4,10 @@ body {
     padding:0;
     box-sizing:border-box;
 }
-.header {
+#header {
     display: flex;
     width: 100vw;
-    height: 50px;
+    height: 3vw;
     background-color: black;
     font-family: 'S-CoreDream-3Light';
     font-size: 1vw;
