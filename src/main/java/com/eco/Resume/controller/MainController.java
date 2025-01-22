@@ -24,8 +24,9 @@ public class MainController {
   public String main(Model model){
     String url = "http://121.130.28.118:8080/BTLMS/ALPAS_TEST.do?name=박민영";
     String result = externalService.fetchData(url); //JSON응답을 가져옴.
-    model.addAttribute("result", result);
+    System.out.println("result는 ? " + result);
 
+    //텍스트 추출
     try {
       ObjectMapper objectMapper = new ObjectMapper();
       JsonNode jsonNode = objectMapper.readTree(result);
@@ -34,10 +35,25 @@ public class MainController {
       String text = jsonNode.get("text").asText();
 
       // 모델에 추가
-      model.addAttribute("result", text);
+      model.addAttribute("text", text);
     } catch (Exception e) {
       e.printStackTrace();
-      model.addAttribute("result", "Error parsing JSON");
+      model.addAttribute("text", "Error parsing JSON");
+    }
+
+    //이미지 추출
+    try {
+      ObjectMapper objectMapper = new ObjectMapper();
+      JsonNode jsonNode = objectMapper.readTree(result);
+
+      // 'image' 요소 추출
+      String img = jsonNode.get("img").asText();
+
+      // 모델에 추가
+      model.addAttribute("img", img);
+    } catch (Exception e) {
+      e.printStackTrace();
+      model.addAttribute("img", "Error parsing JSON");
     }
 
     return "main";  // main.html로 이동
