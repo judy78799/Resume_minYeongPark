@@ -16,4 +16,12 @@
 #nameInput{
     width:15vw;
     padding:0.5vw;
+    border-radius:0.3vw;
+}
+#fetchImageButton{
+    padding:0.5vw;
+    width:5vw;
+    height:2vw;
+    border-radius:0.3vw;
+    background-color:red;
 }
