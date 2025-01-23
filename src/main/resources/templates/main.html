@@ -9,16 +9,52 @@
 
 <div th:replace="~{fragments/header::header}" class="header"></div>
 <div layout:fragment="content" id="wrap">
-    <h1>박민영의 이력서</h1>
-    <img th:src="@{/img/ecoLogo.png}" alt="ecoLogo" class="ecoLogo">
-    <p th:text="${now}"></p>
-
+    <h2 hidden>박민영의 이력서</h2>
+    <div class="ecoLogo_DateAndTime">
+        <img th:src="@{/img/ecoLogo.png}" alt="ecoLogo" class="ecoLogo">
+        <p th:text="${now}"></p>
+    </div>
 
     <div class="faceImgAndBasicInfo">
         <img th:src="@{/img/faceImg.png}" alt="faceImage" class="faceImg">
         <div class="basicInfoCard">
-
+            <table class="BasicInfoTable">
+                <tr>
+                    <td>이름</td>
+                    <td>박민영</td>
+                    <td>생년월일</td>
+                    <td>1997년 12월 01일 (만 27세)</td>
+                </tr>
+                <tr>
+                    <td>전화</td>
+                    <td>010-3706-9303</td>
+                    <td>Email</td>
+                    <td>sera0465@naver.com</td>
+                </tr>
+                <tr>
+                    <td>주소</td>
+                    <td colspan="3">경기도 성남시 분당구 삼평동 봇들마을 9단지 908-1103호</td>
+                </tr>
+                <tr>
+                    <td>지원분야</td>
+                    <td>백엔드 개발</td>
+                    <td>희망연봉</td>
+                    <td>회사내규에 따라 다름</td>
+                </tr>
+            </table>
         </div>
+    </div>
+
+    <div class="subInfo">
+
+    </div>
+
+    <div class="skillInfo">
+
+    </div>
+
+    <div class="projects">
+
     </div>
 
     <h4>전체 URL을 입력하면 결과값이 도출되어 나옵니다.</h4>
