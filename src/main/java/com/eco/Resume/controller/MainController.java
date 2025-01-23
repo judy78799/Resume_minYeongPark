@@ -98,7 +98,9 @@ public class MainController {
 //    saveImage(base64Image); // 이미지 저장 메서드 호출
 //    return "이미지가 성공적으로 저장되었습니다."; // 응답 반환
 //  }
-  @PostMapping("/uploadImageUrl")
+
+  //클라이언트에서 Url 입력 요청 -> Post로 값을 받아와서 처리 -> 브라우저(클라)에서 결과물 확인
+  @PostMapping("/")
   public String uploadImageUrl(@RequestBody ImageUrlRequest request) {
     String imageUrl = request.getImgUrl(); // 클라이언트가 보낸 URL을 가져옴
     // URL로부터 이미지를 가져오는 로직 추가

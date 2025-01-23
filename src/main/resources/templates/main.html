@@ -16,15 +16,17 @@
 
     <h1>이미지 호출</h1>
     <input type="text" id="imageUrlInput" placeholder="이미지 URL 입력" />
-    <button id="fetchImageButton">가져오기</button>
+    <button id="fetchImageButton">결과물 가져오기</button>
     <div id="imageContainer"></div> <!-- 이미지를 표시할 영역 -->
 
-<div th:replace="~{fragments/footer::footer}"></div>
-
+    <div th:replace="~{fragments/footer::footer}"></div>
+</div>
 <th:block layout:fragment="script">
     <script>
+        //버튼을 클릭하면~
         document.getElementById('fetchImageButton').addEventListener('click', function() {
             const imageUrl = document.getElementById('imageUrlInput').value; // 입력된 URL 가져오기
+            console.log("imageUrl은? "+ imageUrl);
 
             fetch('/uploadImageUrl', {
                 method: 'POST',
