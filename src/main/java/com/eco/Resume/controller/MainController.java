@@ -17,6 +17,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 import java.util.zip.GZIPInputStream;
 
@@ -34,6 +37,14 @@ public class MainController {
 
   @GetMapping("/")
   public String main(Model model){
+
+    //날짜와 시간을 표기해주기 위해 LocalDateTime 사용함.
+    LocalDateTime now = LocalDateTime.now();
+    String formatNow = now.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초"));
+    System.out.println(formatNow);
+
+    model.addAttribute("now", formatNow);
+
   //text키 값은 get 방식으로 추출할 수도 있음.
 //    String url = "http://121.130.28.118:8080/BTLMS/ALPAS_TEST.do?name=박민영";
 //    String result = externalService.fetchData(url); //JSON응답을 가져옴.

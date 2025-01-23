@@ -10,7 +10,10 @@
 <div th:replace="~{fragments/header::header}" class="header"></div>
 <div layout:fragment="content" id="wrap">
     <h1>박민영의 이력서</h1>
-    <img src="@{/img/ecoLogo.png}" alt="ecoLogo" class="ecoLogo">
+    <img th:src="@{/img/ecoLogo.png}" alt="ecoLogo" class="ecoLogo">
+    <p th:text="${now}"></p>
+
+
     <div class="faceImgAndBasicInfo">
         <img th:src="@{/img/faceImg.png}" alt="faceImage" class="faceImg">
         <div class="basicInfoCard">
