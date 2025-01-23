@@ -15,6 +15,8 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.zip.GZIPInputStream;
 
@@ -57,15 +59,17 @@ public class MainController {
 
   //POST 처리 로직
   @PostMapping("/uploadImageUrl")
-  @ResponseBody // JSON 형식으로 응답할 것을 명시
+  @ResponseBody // JSON 형식으로 응답할 것을 명시함.
   public String uploadImageUrl(@RequestBody ImageUrlRequest request) {
     String requestUrl = request.getImgUrl(); // 클라이언트가 보낸 URL을 가져옴. img + text (DTO 객체안의 JSON 데이터임.)
-    String imgBase64 = "";
-    String textVal = "";
+    String imgBase64 = "";  //img 키 값 추출을 위한 변수
+    String textVal = "";    //texts 키 값 추출을 위한 변수
     System.out.println("JSON.stringify({ imgUrl: requestUrl })의 requestUrl 값은 무엇일까요? " + requestUrl);
     try {
+      //Url 디코딩
+      requestUrl = URLDecoder.decode(requestUrl, StandardCharsets.UTF_8.name());  //URL 디코딩 진행.
       // URL로부터 JSON 데이터 가져오기
-      URL url = new URL(requestUrl);
+      URL url = new URL(requestUrl);  //get 요청 보낼 때의 Url
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
       connection.setRequestMethod("GET");
       connection.connect();

@@ -2,15 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
-<link rel="stylesheet" th:href="@{/css/header.css}">
 <link rel="stylesheet" th:href="@{/css/common.css}">
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/footer.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+
 <div th:replace="~{fragments/header::header}" class="header"></div>
-<div layout:fragment="content">
+<div layout:fragment="content" id="wrap">
     <h1>박민영의 이력서</h1>
-    <!--
-    <h1>이미지 표시</h1>
-    <img th:src="${img}" alt="Base64 Image"/>
-    -->
+    <img src="@{/img/ecoLogo.png}" alt="ecoLogo" class="ecoLogo">
+    <div class="faceImgAndBasicInfo">
+        <img th:src="@{/img/faceImg.png}" alt="faceImage" class="faceImg">
+        <div class="basicInfoCard">
+
+        </div>
+    </div>
 
     <h4>사용자의 이름을 입력하면 결과값이 도출되어 나옵니다.</h4>
     <input type="text" id="nameInput" placeholder="이름을 입력하세요" />
@@ -18,21 +24,43 @@
     <div id="imageContainer"></div>     <!-- 이미지 표시할 영역 -->
     <div id="textContainer"></div>      <!-- 텍스트 표시할 영역 -->
 
-    <div th:replace="~{fragments/footer::footer}"></div>
 </div>
+<div th:replace="~{fragments/footer::footer}"></div>
 <th:block layout:fragment="script">
     <script>
         document.getElementById('fetchImageButton').addEventListener('click', function() {
-            const name = document.getElementById('nameInput').value; // 사용자가 입력한 이름 input에서 가져오기
-            const baseUrl = 'http://121.130.28.118:8080/BTLMS/ALPAS_TEST.do';   //공통 url 부분
-            const imageUrl = `${baseUrl}?name=${encodeURIComponent(name)}`; // URL 인코딩 /한글 입력 떄문
+            //const name = document.getElementById('nameInput').value; // 사용자가 입력한 이름 input에서 가져오기
+            //const baseUrl = 'http://121.130.28.118:8080/BTLMS/ALPAS_TEST.do';   //공통 url 부분
+            //const imageUrl = `${baseUrl}?name=${encodeURIComponent(name)}`; // URL 인코딩 /한글 입력 떄문
+
+            //전체 URl을 입력 받았을 때의 문제 풀이(한글이름까지)
+             let urlVal = document.getElementById('nameInput').value;
+            //사용자가 따옴표를 입력하였을 경우, 제거
+             urlVal = urlVal.replace(/^["']|["']$/g, ''); // 문자열의 시작과 끝에서 따옴표 제거
+             //Url 파싱
+             const url = new URL(urlVal);
+
+             // 쿼리 파라미터 가져오기
+            const params = new URLSearchParams(url.search);
+
+            // 한글 인코딩 (여기서는 "name" 파라미터를 인코딩하는 예시)
+            if (params.has('name')) {
+                const nameValue = params.get('name');
+                params.set('name', encodeURIComponent(nameValue)); // 한글만 인코딩
+            }
+
+            // 인코딩된 쿼리 파라미터로 새로운 URL 생성
+            url.search = params.toString(); // 인코딩된 파라미터로 업데이트
+            const finalUrl = url.toString(); // 최종 URL
+
+            console.log("인코딩된 URL:", finalUrl); // 최종 URL 확인
 
             fetch('/uploadImageUrl', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ imgUrl: imageUrl }) // 인코딩된 URL을 JSON 형식으로 전송한다.
+                body: JSON.stringify({ imgUrl: finalUrl }) // 인코딩된 URL을 JSON 형식으로 전송한다.
             }) //이 부분 이후에 서버(컨트롤러)로 갔다가 접두사를 붙인 JSON 데이터를 가지고 반환함.
              .then(response => {
                 if (!response.ok) {
@@ -56,18 +84,20 @@
                         //최종 img 태그의 src 값에 추가되는 형태를 출력해보자.
                         console.log("최종 img태그의 src에 추가되는 base64Image 값은? => " + base64Image);
                 } else {
-                    console.error('No image found in the response:', data); // JSON 데이터에 img 키가 없을 경우 에러 반환.
+                    console.error('응답에 img 키가 없습니다', data); // JSON 데이터에 img 키가 없을 경우 에러 반환.
+                    alert('서버 응답에 이미지 정보가 없음.');
                 }
                 if(data.text){
                     const textVal = data.text; // text 키의 문자열을 가져옴.
                     const textElement = document.createElement('h5');   //동적으로 생성
+                    textElement.innerHTML = textVal;
 
                     const textContainer = document.getElementById('textContainer');
                     textContainer.innerHTML = ''; // 기존 text 키의 값을 제거.
-                    textElement.innerHTML = textVal;
                     textContainer.appendChild(textElement); // 새 text를 추가.
                 }else{
                     console.log("text 값이 존재하지 않습니다.");
+                     alert('서버 응답에 텍스트 정보가 없음.');
                 }
 
             })
