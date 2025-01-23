@@ -90,7 +90,7 @@ public class MainController {
       }
 
       imgBase64 = jsonResponse.get("img").asText(); // JSON 응답에서 img 키에 해당하는 값, 즉 Base64로 인코딩된 이미지 데이터를 나타냄. AAA...
-      System.out.println("클라이언트에서 받아온 JSON 응답의 img 키, imgBase64의 값은? " + imgBase64); // URL의 값 중, "img" 키의 값 제대로 가져와짐.
+        System.out.println("클라이언트에서 받아온 JSON 응답의 img 키, imgBase64의 값은? " + imgBase64); // URL의 값 중, "img" 키의 값 제대로 가져와짐.
       textVal = jsonResponse.get("text").asText(); // JSON 응답에서 text 키에 해당하는 값, 즉 Base64로 인코딩된 이미지 데이터를 나타냄. AAA...
 
       // 올바른 형식으로 변환 브라우저에 이미지로 보여지기 위해 "data:image/png;base64," 접두사를 추가
@@ -111,7 +111,7 @@ public class MainController {
       // JSON 형식으로 반환
       ObjectNode responseNode = objectMapper.createObjectNode();
       responseNode.put("img", base64Image); // img 키에 올바른 Base64 문자열 할당
-
+      responseNode.put("text", textVal);  //text 키에 textVal 값 할당.
       return objectMapper.writeValueAsString(responseNode); // JSON 문자열로 반환
 
       //이 수정된 코드를 사용하면 서버에서 반환되는 JSON 형식이 {"img":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."}와 같이 된다.

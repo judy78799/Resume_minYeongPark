@@ -17,7 +17,8 @@
     <h1>이미지 호출</h1>
     <input type="text" id="nameInput" placeholder="이름을 입력하세요" />
     <button id="fetchImageButton">가져오기</button>
-    <div id="imageContainer"></div>     <!-- 이미지를 표시할 영역 -->
+    <div id="imageContainer"></div>     <!-- 이미지 표시할 영역 -->
+    <div id="textContainer"></div>      <!-- 텍스트 표시할 영역 -->
 
     <div th:replace="~{fragments/footer::footer}"></div>
 </div>
@@ -54,11 +55,23 @@
                     imageContainer.innerHTML = ''; // 기존 이미지를 제거.
                     imageContainer.appendChild(imgElement); // 새 이미지를 추가.
 
-                    //최종 img 태그의 src 값에 추가되는 형태를 출력해보자.
-                    console.log("최종 img태그의 src에 추가되는 base64Image 값은? => " + base64Image);
+                        //최종 img 태그의 src 값에 추가되는 형태를 출력해보자.
+                        console.log("최종 img태그의 src에 추가되는 base64Image 값은? => " + base64Image);
                 } else {
                     console.error('No image found in the response:', data); // JSON 데이터에 img 키가 없을 경우 에러 반환.
                 }
+                if(data.text){
+                    const textVal = data.text; // text 키의 문자열을 가져옴.
+                    const textElement = document.createElement('h5');   //동적으로 생성
+
+                    const textContainer = document.getElementById('textContainer');
+                    textContainer.innerHTML = ''; // 기존 text 키의 값을 제거.
+                    textElement.innerHTML = textVal;
+                    textContainer.appendChild(textElement); // 새 text를 추가.
+                }else{
+                    console.log("text 값이 존재하지 않습니다.");
+                }
+
             })
             .catch((error) => {
                 console.error('Error:', error);
