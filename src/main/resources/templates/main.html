@@ -32,16 +32,11 @@
 <th:block layout:fragment="script">
     <script>
         document.getElementById('fetchImageButton').addEventListener('click', function() {
-            //const name = document.getElementById('nameInput').value; // 사용자가 입력한 이름 input에서 가져오기
-            //const baseUrl = 'http://121.130.28.118:8080/BTLMS/ALPAS_TEST.do';   //공통 url 부분
-            //const imageUrl = `${baseUrl}?name=${encodeURIComponent(name)}`; // URL 인코딩 /한글 입력 떄문
 
             //전체 URl을 입력 받았을 때의 문제 풀이(한글이름까지)
              let urlVal = document.getElementById('nameInput').value;
-            //사용자가 따옴표를 입력하였을 경우, 제거
-             urlVal = urlVal.replace(/^["']|["']$/g, ''); // 문자열의 시작과 끝에서 따옴표 제거
-             //Url 파싱
-             const url = new URL(urlVal);
+             urlVal = urlVal.replace(/^["']|["']$/g, ''); // 사용자가 따옴표를 입력하였을 경우, 문자열의 시작과 끝에서 따옴표 제거
+             const url = new URL(urlVal); //Url 파싱
 
              // 쿼리 파라미터 가져오기
             const params = new URLSearchParams(url.search);

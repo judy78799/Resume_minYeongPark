@@ -42,29 +42,7 @@ public class MainController {
     LocalDateTime now = LocalDateTime.now();
     String formatNow = now.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초"));
     System.out.println(formatNow);
-
     model.addAttribute("now", formatNow);
-
-  //text키 값은 get 방식으로 추출할 수도 있음.
-//    String url = "http://121.130.28.118:8080/BTLMS/ALPAS_TEST.do?name=박민영";
-//    String result = externalService.fetchData(url); //JSON응답을 가져옴.
-//    System.out.println("result는 ? " + result);
-//
-//    //텍스트 추출
-//    try {
-//      ObjectMapper objectMapper = new ObjectMapper();
-//      JsonNode jsonNode = objectMapper.readTree(result);
-//
-//      // 'text' 요소 추출
-//      String text = jsonNode.get("text").asText();
-//
-//      // 모델에 추가
-//      model.addAttribute("text", text);
-//    } catch (Exception e) {
-//      e.printStackTrace();
-//      model.addAttribute("text", "Error parsing JSON");
-//    }
-
     return "main";  // main.html로 이동
   }
 
