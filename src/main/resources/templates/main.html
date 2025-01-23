@@ -19,7 +19,7 @@
     </div>
 
     <h4>사용자의 이름을 입력하면 결과값이 도출되어 나옵니다.</h4>
-    <input type="text" id="nameInput" placeholder="이름을 입력하세요" />
+    <input type="text" id="nameInput" placeholder="전체 URL을 입력해주세요. (따옴표 상관 없이)" />
     <button id="fetchImageButton">가져오기</button>
     <div id="imageContainer"></div>     <!-- 이미지 표시할 영역 -->
     <div id="textContainer"></div>      <!-- 텍스트 표시할 영역 -->
@@ -103,7 +103,7 @@
             })
             .catch((error) => {
                 console.error('Error:', error);
-                alert('이미지를 가져오는 데 문제가 발생했습니다: ' + error.message); // 사용자에게 오류 메시지 표시
+                alert('해당 면접자가 아닙니다.\n'+ error.message); // 사용자에게 오류 메시지 표시
             });
         });
     </script>
