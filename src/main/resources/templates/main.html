@@ -15,40 +15,51 @@
     -->
 
     <h1>이미지 호출</h1>
-    <input type="text" id="imageUrlInput" placeholder="이미지 URL 입력" />
-    <button id="fetchImageButton">결과물 가져오기</button>
-    <div id="imageContainer"></div> <!-- 이미지를 표시할 영역 -->
+    <input type="text" id="nameInput" placeholder="이름을 입력하세요" />
+    <button id="fetchImageButton">가져오기</button>
+    <div id="imageContainer"></div>     <!-- 이미지를 표시할 영역 -->
 
     <div th:replace="~{fragments/footer::footer}"></div>
 </div>
 <th:block layout:fragment="script">
     <script>
-        //버튼을 클릭하면~
         document.getElementById('fetchImageButton').addEventListener('click', function() {
-            const imageUrl = document.getElementById('imageUrlInput').value; // 입력된 URL 가져오기
-            console.log("imageUrl은? "+ imageUrl);
+            const name = document.getElementById('nameInput').value; // 사용자가 입력한 이름 input에서 가져오기
+            const baseUrl = 'http://121.130.28.118:8080/BTLMS/ALPAS_TEST.do';   //공통 url 부분
+            const imageUrl = `${baseUrl}?name=${encodeURIComponent(name)}`; // URL 인코딩 /한글 입력 떄문
 
             fetch('/uploadImageUrl', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ imgUrl: imageUrl }) // URL을 JSON 형식으로 전송
+                body: JSON.stringify({ imgUrl: imageUrl }) // 인코딩된 URL을 JSON 형식으로 전송한다.
             })
-            .then(response => response.text()) // 서버의 응답을 텍스트로 받아옴
-            .then(base64Image => {
-                // Base64 이미지를 브라우저에 표시
-                const imgElement = document.createElement('img');
-                imgElement.src = base64Image; // Base64 이미지를 img 태그에 설정
-                imgElement.alt = 'Fetched Image'; // 이미지 설명 추가
+             .then(response => {
+                if (!response.ok) {
+                    // 응답이 성공적이지 않은 경우 에러 처리
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.json(); // JSON 응답 받기
+                })
+              .then(data => {
+                 if (data.img) { // img 키가 존재하는지 확인
+                    const base64Image = data.img; // img 키의 Base64 문자열을 가져옴
+                    const imgElement = document.createElement('img');
+                    imgElement.src = base64Image; // Base64 이미지를 img 태그에 설정
+                    imgElement.alt = 'Fetched Image'; // 이미지 설명 추가
 
-                // 이미지 컨테이너에 추가
-                const imageContainer = document.getElementById('imageContainer');
-                imageContainer.innerHTML = ''; // 기존 이미지를 제거
-                imageContainer.appendChild(imgElement); // 새 이미지를 추가
+                    // 기존 이미지를 제거하고 새 이미지를 추가하여 최신 상태 유지
+                    const imageContainer = document.getElementById('imageContainer');
+                    imageContainer.innerHTML = ''; // 기존 이미지를 제거
+                    imageContainer.appendChild(imgElement); // 새 이미지를 추가
+                } else {
+                    console.error('No image found in the response:', data); // img 키가 없을 경우
+                }
             })
             .catch((error) => {
                 console.error('Error:', error);
+                alert('이미지를 가져오는 데 문제가 발생했습니다: ' + error.message); // 사용자에게 오류 메시지 표시
             });
         });
     </script>
