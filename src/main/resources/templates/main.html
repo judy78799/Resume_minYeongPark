@@ -34,27 +34,30 @@
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ imgUrl: imageUrl }) // 인코딩된 URL을 JSON 형식으로 전송한다.
-            })
+            }) //이 부분 이후에 서버(컨트롤러)로 갔다가 접두사를 붙인 JSON 데이터를 가지고 반환함.
              .then(response => {
                 if (!response.ok) {
-                    // 응답이 성공적이지 않은 경우 에러 처리
+                    // 응답이 성공적이지 않은 경우 에러 처리.
                     throw new Error('Network response was not ok: ' + response.statusText);
                 }
-                return response.json(); // JSON 응답 받기
+                return response.json(); // JSON 응답 받기.(접두사 붙인 JSON 데이터임.)
                 })
               .then(data => {
-                 if (data.img) { // img 키가 존재하는지 확인
-                    const base64Image = data.img; // img 키의 Base64 문자열을 가져옴
+                 if (data.img) { // img 키가 존재하는지 확인.
+                    const base64Image = data.img; // img 키의 Base64 문자열을 가져옴.(접두사가 붙은 상태)
                     const imgElement = document.createElement('img');
-                    imgElement.src = base64Image; // Base64 이미지를 img 태그에 설정
-                    imgElement.alt = 'Fetched Image'; // 이미지 설명 추가
+                    imgElement.src = base64Image; // Base64 이미지를 img 태그에 설정.
+                    imgElement.alt = 'Fetched Image'; // 이미지 설명 추가.
 
-                    // 기존 이미지를 제거하고 새 이미지를 추가하여 최신 상태 유지
+                    // 기존 이미지를 제거하고 새 이미지를 추가하여 최신 상태 유지.
                     const imageContainer = document.getElementById('imageContainer');
-                    imageContainer.innerHTML = ''; // 기존 이미지를 제거
-                    imageContainer.appendChild(imgElement); // 새 이미지를 추가
+                    imageContainer.innerHTML = ''; // 기존 이미지를 제거.
+                    imageContainer.appendChild(imgElement); // 새 이미지를 추가.
+
+                    //최종 img 태그의 src 값에 추가되는 형태를 출력해보자.
+                    console.log("최종 img태그의 src에 추가되는 base64Image 값은? => " + base64Image);
                 } else {
-                    console.error('No image found in the response:', data); // img 키가 없을 경우
+                    console.error('No image found in the response:', data); // JSON 데이터에 img 키가 없을 경우 에러 반환.
                 }
             })
             .catch((error) => {

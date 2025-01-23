@@ -106,7 +106,7 @@ public class MainController {
   @PostMapping("/uploadImageUrl")
   @ResponseBody // JSON 형식으로 응답할 것을 명시
   public String uploadImageUrl(@RequestBody ImageUrlRequest request) {
-    String requestUrl = request.getImgUrl(); // 클라이언트가 보낸 URL을 가져옴
+    String requestUrl = request.getImgUrl(); // 클라이언트가 보낸 URL을 가져옴 DTO 객체안의 JSON 데이터.
     String imgBase64 = "";
     System.out.println("JSON.stringify({ imgUrl: requestUrl })의 requestUrl 값은 무엇일까요? " + requestUrl);
     try {
@@ -135,7 +135,7 @@ public class MainController {
         System.out.println("JSON 응답에 img 키가 존재합니다.");
       }
 
-      imgBase64 = jsonResponse.get("img").asText(); // JSON 응답에서 img 키에 해당하는 값, 즉 Base64로 인코딩된 이미지 데이터를 나타냄.
+      imgBase64 = jsonResponse.get("img").asText(); // JSON 응답에서 img 키에 해당하는 값, 즉 Base64로 인코딩된 이미지 데이터를 나타냄. AAA...
       System.out.println("클라이언트에서 받아온 JSON 응답의 img 키, imgBase64의 값은? " + imgBase64); // URL의 값 중, "img" 키의 값 제대로 가져와짐.
 
       // 올바른 형식으로 변환 브라우저에 이미지로 보여지기 위해 "data:image/png;base64," 접두사를 추가
