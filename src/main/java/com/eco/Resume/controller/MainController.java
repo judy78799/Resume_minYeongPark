@@ -1,7 +1,9 @@
 package com.eco.Resume.controller;
 
+import com.eco.Resume.dto.Blogs;
 import com.eco.Resume.dto.ImageUrlRequest;
 import com.eco.Resume.service.BlogCrawlingService;
+import com.eco.Resume.service.BlogsService;
 import com.eco.Resume.service.ExternalService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,6 +24,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Base64;
+import java.util.List;
 import java.util.zip.GZIPInputStream;
 
 
@@ -34,13 +37,14 @@ public class MainController {
   @Autowired
   public BlogCrawlingService blogCrawlingService;
 
+  @Autowired
+  private BlogsService blogsService;
+
+
   //클래스 생성자
-  public MainController(ExternalService externalService) {
-    this.externalService = externalService;
-  }
 
   @GetMapping("/")
-  public String main(Model model){
+  public String main(Model model) throws Exception{
 
     //날짜와 시간을 표기해주기 위해 LocalDateTime 사용함.
     LocalDateTime now = LocalDateTime.now();
@@ -48,8 +52,13 @@ public class MainController {
     System.out.println(formatNow);
     model.addAttribute("now", formatNow);
 
-    String crawlData = blogCrawlingService.crawling();
-    model.addAttribute("crawlData", crawlData);
+    //블로그 크롤링 데이터
+    List<Blogs> blogsList = blogsService.getBlogsDatas();
+    model.addAttribute("blogsList", blogsList);
+    //String crawlData = blogCrawlingService.crawling();
+    //model.addAttribute("crawlData", crawlData);
+
+
     return "main";  // main.html로 이동
   }
 
