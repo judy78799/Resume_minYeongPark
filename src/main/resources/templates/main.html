@@ -105,22 +105,22 @@
         <h2 class="contents_title">프로젝트</h2>
         <ul class="project_wrap">
             <li class="project_box">
-                <h3>아트인 홈</h3>
+                <h3 class="blog_title">아트인 홈 Art-In-Home</h3>
                 <p>2024.09~2024.10 (2개월)</p>
                 <p>2030세대를 위한 셀프 인테리어 웹사이트 제작</p>
             </li>
             <li class="project_box">
-                <h3>투어 어스</h3>
+                <h3 class="blog_title">투어 어스 Tour-Us</h3>
                 <p>2024.07~2024.8 (2개월)</p>
                 <p>Z세대를 위한 힐링 여행지 추천 웹사이트</p>
             </li>
             <li class="project_box">
-                <h3>창업 교육과정 조회서비스</h3>
+                <h3 class="blog_title">창업 교육과정 조회서비스</h3>
                 <p>2024.05~2024.06 (1개월)</p>
                 <p>창업교육과정 조회서비스 공공 데이터 API CRUD 기능 구현</p>
             </li>
             <li class="project_box">
-                <h3>Welcome To Plastic World</h3>
+                <h3 class="blog_title">Welcome To Plastic World</h3>
                 <p>2023.10~2023.11 (2개월)</p>
                 <p>플라스틱 해양오염 심각성 알리기 웹사이트</p>
             </li>
@@ -149,8 +149,13 @@
     <div id="imageContainer"></div>     <!-- 이미지 표시할 영역 -->
     <div id="textContainer"></div>      <!-- 텍스트 표시할 영역 -->
 
+
+    <button id="topBtn">Top</button>
 </div>
+
 <div th:replace="~{fragments/footer::footer}"></div>
+
+
 <th:block layout:fragment="script">
     <script>
         document.getElementById('fetchImageButton').addEventListener('click', function() {
@@ -226,6 +231,29 @@
                 alert('해당 면접자가 아닙니다.\n'+ error.message); // 사용자에게 오류 메시지 표시
             });
         });
+
+    function scrollToTop() {
+    // 현재 스크롤 위치를 가져옵니다.
+    const scrollY = window.scrollY; //상수 scrollY는 윈도우의 scrollY값을 가져온다.
+
+    // 스크롤 위치가 0보다 크면, 다시 scrollToTop 함수를 호출합니다.
+    if (scrollY > 0) {
+        requestAnimationFrame(scrollToTop);
+        window.scrollTo(0, scrollY - scrollY / 35); //top으로 스크롤 하여 '0' 으로 도착(맨위), Y에서 Y값으로 스크롤/ 35속도 만큼.
+    }
+    const topBtn = document.getElementById("topBtn");
+
+    }   // scrollToTop() END.
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 100) {
+            topBtn.style.display = "block";
+        } else {
+            topBtn.style.display = "none";
+        }
+    });
+
+    topBtn.addEventListener("click", scrollToTop);
     </script>
 </th:block>
 
