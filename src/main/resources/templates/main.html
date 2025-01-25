@@ -93,7 +93,7 @@
     </div>
 
     <div class="skillInfo">
-        <h2 class="skillInfo_title">● Skill</h2>
+        <h2 class="contents_title">● Skill</h2>
         <div class="btn_box">
             <button class="skillInfo_btn">한눈에 보기</button>
             <button class="skillInfo_btn">기술 설명</button>
@@ -101,23 +101,47 @@
     </div>
 
 
-    <div class="projects">
+    <section class="projects">
+        <h2 class="contents_title">프로젝트</h2>
+        <ul class="project_wrap">
+            <li class="project_box">
+                <h3>아트인 홈</h3>
+                <p>2024.09~2024.10 (2개월)</p>
+                <p>2030세대를 위한 셀프 인테리어 웹사이트 제작</p>
+            </li>
+            <li class="project_box">
+                <h3>투어 어스</h3>
+                <p>2024.07~2024.8 (2개월)</p>
+                <p>Z세대를 위한 힐링 여행지 추천 웹사이트</p>
+            </li>
+            <li class="project_box">
+                <h3>창업 교육과정 조회서비스</h3>
+                <p>2024.05~2024.06 (1개월)</p>
+                <p>창업교육과정 조회서비스 공공 데이터 API CRUD 기능 구현</p>
+            </li>
+            <li class="project_box">
+                <h3>Welcome To Plastic World</h3>
+                <p>2023.10~2023.11 (2개월)</p>
+                <p>플라스틱 해양오염 심각성 알리기 웹사이트</p>
+            </li>
+        </ul>
+    </section>
 
-    </div>
 
-
-    <!--크롤링 테스트 -->
-    <h2>크롤링 데이터 시험</h2>
-    <div class="blogs_box">
-        <div th:each="blogsLists : ${blogsList}" class="blog_card">
-            <a th:href="${blogsLists.url}">
-                <img th:src="${blogsLists.image}" class="blog_img">
-                <p th:text="${blogsLists.title}" class="blog_title"></p>
-                <p th:text="${blogsLists.content}" class="blog_content"></p>
-                <p th:text="${blogsLists.date}"></p>
-            </a>
+    <!--기술 블로그 크롤링 영역 -->
+    <section class="blogs_box">
+        <h2 class="contents_title">기술 블로그</h2>
+        <div class="blogs_wrap">
+            <div th:each="blogsLists : ${blogsList}" class="blog_card">
+                <a th:href="${blogsLists.url}">
+                    <img th:src="${blogsLists.image}" class="blog_img">
+                    <p th:text="${blogsLists.title}" class="blog_title"></p>
+                    <p th:text="${blogsLists.content}" class="blog_content"></p>
+                    <p th:text="${blogsLists.date}"></p>
+                </a>
+            </div>
         </div>
-    </div>
+    </section>
 
     <h4>전체 URL을 입력하면 결과값이 도출되어 나옵니다.</h4>
     <input type="text" id="nameInput" placeholder="전체 URL을 입력해주세요. (따옴표 상관 없이)" />
