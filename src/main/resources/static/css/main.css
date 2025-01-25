@@ -13,7 +13,8 @@
 .faceImgAndBasicInfo{
     display:flex;
     justify-content: space-between;
-    width:100%;
+    margin:0 auto;
+    width:80%;
     height:20vw;
     background-color:green;
 }
@@ -24,6 +25,15 @@
     width:50vw;
     height:100%;
     background-color:red;
+}
+.basicInfoCard_title{
+    font-size:1.2vw;
+    font-weight:bold;
+    margin-bottom:1.2vw;
+}
+.basicInfoCard_content{
+    font-size:1vw;
+    line-height:180%;
 }
 .BasicInfoTable{
 width:100%;
@@ -43,13 +53,34 @@ width:100%;
     background-color:coral;
     font-size:1vw;
 }
+.skillInfo_title{
+    font-size:1.2vw;
+    font-weight:bold;
+}
+.btn_box{
+    display:flex;
+    width:12vw;
+    height:5vw;
+}
+.skillInfo_btn{
+    width:5vw;
+    height:3vw;
+    border-radius:0.5vw;
+    background-color:black;
+    color:white;
+}
 .info_box{
     width:20vw;
-    height:10vw;
+    height:13vw;
     padding:1vw;
     background-color:yellow;
     border-radius:0.5vw;
     line-height:180%;
+}
+.info_box_title{
+    font-size:1.2vw;
+    font-weight:bold;
+    margin-bottom:1vw;
 }
 .skillInfo{
     width:100%;

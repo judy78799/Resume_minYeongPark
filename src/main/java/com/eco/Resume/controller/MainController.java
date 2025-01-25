@@ -1,6 +1,7 @@
 package com.eco.Resume.controller;
 
 import com.eco.Resume.dto.ImageUrlRequest;
+import com.eco.Resume.service.BlogCrawlingService;
 import com.eco.Resume.service.ExternalService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,6 +31,9 @@ public class MainController {
   @Autowired
   private ExternalService externalService;
 
+  @Autowired
+  public BlogCrawlingService blogCrawlingService;
+
   //클래스 생성자
   public MainController(ExternalService externalService) {
     this.externalService = externalService;
@@ -43,6 +47,9 @@ public class MainController {
     String formatNow = now.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초"));
     System.out.println(formatNow);
     model.addAttribute("now", formatNow);
+
+    String crawlData = blogCrawlingService.crawling();
+    model.addAttribute("crawlData", crawlData);
     return "main";  // main.html로 이동
   }
 
@@ -114,6 +121,7 @@ public class MainController {
       return "Error fetching image: " + e.getMessage(); // 에러 메시지 반환
     }
   }
+
 }
 
 
