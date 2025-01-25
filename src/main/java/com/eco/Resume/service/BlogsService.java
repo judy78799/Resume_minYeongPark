@@ -24,28 +24,15 @@ public class BlogsService {
 
       Document document = Jsoup.connect(Blogs_URL).get();
 
-    //정보 덩어리 한개
+    //블로그 리스트 덩어리 한개
     Elements contents = document.select("div.area-common div.article-content");
 
-    String backgroundImageUrl = "";
+    int Blog_size = Math.min(contents.size(), 4); // contents의 크기와 4 중 작은 값 선택
 
-// style 속성에서 URL 추출
-    //style이 비어있지 않고 background-image 포함한다면~
-
-    for(Element content : contents){
-
+    for(int i =0; i < Blog_size; i++){
+      Element content = contents.get(i); // i번째 요소 가져오기
       String style = content.select("a.link-article[data-tiara-image]").attr("abs:data-tiara-image");
-      System.out.println("스타일 값을 가져오는가? : " + style);
-
-      if (style != null && style.contains("background-image")) {
-        // 정규 표현식으로 URL 추출
-        Pattern pattern = Pattern.compile("url\\(\"?(.*?)\"?\\)");
-        Matcher matcher = pattern.matcher(style);
-
-        if (matcher.find()) {
-          style = matcher.group(1); // 첫 번째 그룹(즉, URL) 가져오기
-        }
-      }
+      //System.out.println("스타일 값을 가져오는가? : " + style);
       Blogs blogs = Blogs.builder()
           .image(style) // style 속성 가져오기) // 이미지 URL
           .url(content.select("a").attr("abs:href"))
@@ -53,8 +40,8 @@ public class BlogsService {
           .content(content.select("p.summary").text())
           .date(content.select("span.date").text())
           .build();
+
       blogsList.add(blogs);
-      //System.out.println("blogsList add 후에는 Url 값을 가져오는가? : "+ contents.select("a").attr("abs:href"));
     }
     //System.out.println("for 문 밖에서 값을 가져오는가? : "+ contents.select("p.thumbnail").attr("style"));
 

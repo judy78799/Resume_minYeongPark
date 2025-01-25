@@ -55,9 +55,6 @@ public class MainController {
     //블로그 크롤링 데이터
     List<Blogs> blogsList = blogsService.getBlogsDatas();
     model.addAttribute("blogsList", blogsList);
-    //String crawlData = blogCrawlingService.crawling();
-    //model.addAttribute("crawlData", crawlData);
-
 
     return "main";  // main.html로 이동
   }

@@ -15,16 +15,6 @@
         <p th:text="${now}"></p>
     </div>
 
-    <!--크롤링 테스트 -->
-    <h2>크롤링 데이터 시험</h2>
-    <div th:each="blogsLists : ${blogsList} ">
-        <img th:src="${blogsLists.image}">
-        <p><a th:href="${blogsLists.url}"><span th:text="${blogsLists.title}"></span></a></p>
-        <p><a th:href="${blogsLists.url}"><span th:text="${blogsLists.content}"></span></a></p>
-        <p><span th:text="${blogsLists.date}"></span></p>
-        </a>
-    </div>
-
     <div class="faceImgAndBasicInfo">
         <img th:src="@{/img/faceImg.png}" alt="faceImage" class="faceImg">
         <div class="basicInfoCard">
@@ -110,8 +100,23 @@
         </div>
     </div>
 
+
     <div class="projects">
 
+    </div>
+
+
+    <!--크롤링 테스트 -->
+    <h2>크롤링 데이터 시험</h2>
+    <div class="blogs_box">
+        <div th:each="blogsLists : ${blogsList}" class="blog_card">
+            <a th:href="${blogsLists.url}">
+                <img th:src="${blogsLists.image}" class="blog_img">
+                <p th:text="${blogsLists.title}" class="blog_title"></p>
+                <p th:text="${blogsLists.content}" class="blog_content"></p>
+                <p th:text="${blogsLists.date}"></p>
+            </a>
+        </div>
     </div>
 
     <h4>전체 URL을 입력하면 결과값이 도출되어 나옵니다.</h4>
