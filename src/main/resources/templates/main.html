@@ -18,7 +18,7 @@
     <!--크롤링 테스트 -->
     <h2>크롤링 데이터 시험</h2>
     <div th:each="blogsLists : ${blogsList} ">
-        <a th:href="${blogsLists.url}"><img th:src="${blogsLists.image}"></a>
+        <img th:src="${blogsLists.image}">
         <p><a th:href="${blogsLists.url}"><span th:text="${blogsLists.title}"></span></a></p>
         <p><a th:href="${blogsLists.url}"><span th:text="${blogsLists.content}"></span></a></p>
         <p><span th:text="${blogsLists.date}"></span></p>
