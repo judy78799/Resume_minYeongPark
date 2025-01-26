@@ -91,12 +91,23 @@ width:100%;
     background-color:lightblue;
 }
 .skill_summary_ver_wrap{
+    width:100%;
+    height:100%;
     display:flex;
+    justify-content:space-between;
     flex-wrap:wrap;
+}
+.skill_summary_card{
+    width:14vw;
+    height:10vw;
+    padding:1vw;
+    background-color:black;
+    border-radius:0.5vw;
+    color:white;
 }
 .projects{
     width:100%;
-    height:20vw;
+    height:40vw;
     background-color:blue;
 }
 .project_wrap{
@@ -113,6 +124,12 @@ width:100%;
     padding:1vw;
     border-radius:0.5vw;
     background-color:lightcoral;
+}
+.project_explanation{
+    width:100%;
+    height:24vw;
+    border-radius:0.5vw;
+    background-color:tomato;
 }
 .blogs_box{
     width:100%;
