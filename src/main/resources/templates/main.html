@@ -7,6 +7,7 @@
 <link rel="stylesheet" th:href="@{/css/footer.css}">
 <link rel="stylesheet" th:href="@{/css/main.css}">
 <link rel="stylesheet" th:href="@{/css/information.css}">
+<link rel="stylesheet" th:href="@{/css/skill.css}">
 
 <div th:replace="~{fragments/header::header}" class="header"></div>
 <section layout:fragment="content" id="wrap">
@@ -16,10 +17,9 @@
         <p th:text="${now}"></p>
     </div>
 
-<!--    <section id="imgSet">-->
-
-<!--    </section>-->
-    <div  id="imgSet">
+    <section id="BasicInfo">
+        <h2 class="contents_title">안녕하세요 솔선수범한 개발자 박민영입니다.</h2>
+        <div id="imgSet">
             <img th:src="@{/img/faceImg.png}" alt="faceImage" class="faceImg">
             <ol id="ulSet">
                 <li id="list1"><span>01<span class="dot">.</span>자기소개</span></li>
@@ -38,7 +38,8 @@
             </figure>
             <figure>
                 <figcaption id="text3" class="text">
-                    <p>학부에서 웹사이트 제작과 유니티 언리얼 엔진을 통한 다양한 게임을 구현하였습니다. JQuery 라이브러리, Javascript를 사용하여 동적 웹사이트들을 제작하였고, 유니티와 립모션 기기를 사용한 농구 게임, Oculus Quest 2기기를 사용하여 VR 알파 세대를 위한 인테리어 프로젝트 등 다양한 프로젝트를 진행하였습니다.
+                    <p>
+                        학부에서 웹사이트 제작과 유니티 언리얼 엔진을 통한 다양한 게임을 구현하였습니다. JQuery 라이브러리, Javascript를 사용하여 동적 웹사이트들을 제작하였고, 유니티와 립모션 기기를 사용한 농구 게임, Oculus Quest 2기기를 사용하여 VR 알파 세대를 위한 인테리어 프로젝트 등 다양한 프로젝트를 진행하였습니다.
                         개발에 관심을 가지며 방학 중 학생연구원 활동으로 교수님, 학우 한 명과 VR 비트 월드 프로젝트를 진행하였습니다. 기기 관련 이슈와 멀티 유저 관련 이슈를 해결하고 문서화하면서 사용자 중점의 개발에 대해 가치를 느끼게 되었습니다.
                         이후 한국 정보교육원에서 JAVA, Spring Boot, Spring, Javascript (JQuery), MYSQL, MariaDB 등의 전반적인 실무 위주의 백엔드 개발 교육을 6개월간 받았습니다.
                         1차 프로젝트에서는 MYSQL DB를 사용하여 공공데이터 API 파싱 게시판을 구현하였습니다. JDBC 드라이버를 데이터베이스에 연결하였으며, 생성자 클래스, 실행 클래스, JsonData 파싱 클래스 총 3개의 클래스를 전체 메서드 구조로 구성하였습니다. Scanner 객체를 사용하여 사용자 입력값을 받아 PreparedStatement 객체와 쿼리문(바인드 변수)을 사용하여 구현하였습니다.
@@ -49,7 +50,8 @@
             </figure>
             <figure>
                 <figcaption id="text2" class="text">
-                    <p>스프링부트 3차 프로젝트 팀장을 맡아 진행하였습니다. 과제 수행에 어려움을 겪거나 진로를 변경하는 팀원 등 각기 다른 입장의 팀원들과 프로젝트를 진행했습니다. 초반 회의를 통해 팀원의 과반수가 프로젝트 이해에 어려움을 겪고 있다는 문제를 인식하게 되었습니다. 어떻게 하면 팀원들이 쉽게 프로젝트 접근을 쉽게 할 수 있을 지 고안하며 해당 문제를 해결하기 위해 다양한 방법으로 코드 분석을 시도하였습니다. 처음엔 모르는 게 많아 메서드 블록 단위로 분석하였지만 이후엔 M-V-C 패턴에서 컨트롤러를 방향 지표로 잡는 C-M-V 순서로 접근하는 방법을 정립하였고 이를 문서화 하여 팀원들에게 공유함으로써 팀원의 프로젝트 이해에 도모하였습니다.
+                    <p>
+                        스프링부트 3차 프로젝트 팀장을 맡아 진행하였습니다. 과제 수행에 어려움을 겪거나 진로를 변경하는 팀원 등 각기 다른 입장의 팀원들과 프로젝트를 진행했습니다. 초반 회의를 통해 팀원의 과반수가 프로젝트 이해에 어려움을 겪고 있다는 문제를 인식하게 되었습니다. 어떻게 하면 팀원들이 쉽게 프로젝트 접근을 쉽게 할 수 있을 지 고안하며 해당 문제를 해결하기 위해 다양한 방법으로 코드 분석을 시도하였습니다. 처음엔 모르는 게 많아 메서드 블록 단위로 분석하였지만 이후엔 M-V-C 패턴에서 컨트롤러를 방향 지표로 잡는 C-M-V 순서로 접근하는 방법을 정립하였고 이를 문서화 하여 팀원들에게 공유함으로써 팀원의 프로젝트 이해에 도모하였습니다.
                         학습 지향성 및 지속가능한 성장을 위해 격려하며, 주마다 과제를 스스로 설정하고 피드백 하였습니다. 프로젝트 중 후반에는 플랜 관리를 위해 매일 모여 각자 결과물을 피드백 하는 방식을 고안하여 진행하였습니다. 구현에 난이도 있는 기술의 경우 함께 트러블슈팅을 진행하며 전반적인 기능 구현을 도와 빠른 문제 해결을 가능 하도록 하였습니다. 기존 계획의 차선책으로서 저와 다른 팀원이 조금씩 역할을 추가로 분담하여 전체 프로젝트를 마무리 지을 수 있었습니다. 결과적으로 기능 구현에 오류 없이 3차 프로젝트를 마무리 지었습니다. 수행에 어려움이 생기더라도 자신에게 주어진 역할과 임무를, 책임감을 가지고 완수해야 한다고 생각합니다.
                         이와 같은 솔선수범한 태도와 끝까지 완수해 내는 책임감이 저의 큰 장점입니다.
                     </p>
@@ -57,7 +59,8 @@
             </figure>
             <figure>
                 <figcaption id="text1" class="text">
-                    <p>학부에서 프로그래밍을 전공하여 C#과 JavaScript 두 가지 언어를 함께 학습하면서 서로 다른 언어이지만 사용하는 방법은 비슷하다는 점을 알 수 있었기 때문에 새로운 언어에 도전할 수 있는 원동력이 되었습니다.
+                    <p>
+                        학부에서 프로그래밍을 전공하여 C#과 JavaScript 두 가지 언어를 함께 학습하면서 서로 다른 언어이지만 사용하는 방법은 비슷하다는 점을 알 수 있었기 때문에 새로운 언어에 도전할 수 있는 원동력이 되었습니다.
                         학생 연구원에 참여하여 사용자 중심의 개발 방향성을 지향하게 되었으며, 개발자로서의 진로를 확고히 하였습니다.
                         기획 및 디자이너와 협업 할 수 있는 기회가 있어, 졸업 작품으로 서비스 웹사이트를 제작했습니다.
                         이후 백엔드 개발자로서 전문성을 키우기 위해 한국정보교육원에서 6개월 간 학습하였습니다.
@@ -67,124 +70,94 @@
                     </p>
                 </figcaption>
             </figure>
-            <!--
-            <table class="BasicInfoTable">
-                <tr>
-                    <td>이름</td>
-                    <td>박민영</td>
-                    <td>생년월일</td>
-                    <td>1997년 12월 01일 (만 27세)</td>
-                </tr>
-                <tr>
-                    <td>전화</td>
-                    <td>010-3706-9303</td>
-                    <td>Email</td>
-                    <td>sera0465@naver.com</td>
-                </tr>
-                <tr>
-                    <td>주소</td>
-                    <td colspan="3">경기도 성남시 분당구 삼평동 봇들마을 9단지 908-1103호</td>
-                </tr>
-                <tr>
-                    <td>지원분야</td>
-                    <td>백엔드 개발</td>
-                    <td>희망연봉</td>
-                    <td>회사내규에 따라 다름</td>
-                </tr>
-            </table>
-            -->
-    </div>
+        </div>
+    </section>
 
-    <h2 class="">Info</h2>
-    <div class="subInfo">
-            <ul class="info_box">
-                <li class="info_box_title">About Me</li>
-                <li>박민영</li>
-                <li>1997.12.01</li>
-                <li>계원예술대학교 디지털미디어디자인학과 졸업</li>
-                <li>세부전공 프로그래밍</li>
-            </ul>
-<!--            <ul class="info_box">-->
-<!--                <li class="info_box_title">Channel</li>-->
-<!--                <li>깃허브 주소: https://github.com/judy78799</li>-->
-<!--                <li>기술 블로그: https://judy0465.tistory.com/</li>-->
-<!--            </ul>-->
-            <ul class="info_box">
-                <li class="info_box_title">학부활동</li>
-                <li>1학년 2학기 과대</li>
-                <li>학생연구원</li>
-                <li>2학년 1,2학기 성적장학금</li>
-                <li>도서 마일리지 학과 대표 선정</li>
-            </ul>
-            <ul class="info_box">
-                <li class="info_box_title">Educatoin & Study</li>
-                <li>한국정보교육원[SQF기반] 자바 스프링으로 완성하는 공공데이터 활용 백엔드 개발자 양성</li>
-                <li>월간 CS – React Deep Dive 발표형 스터디</li>
-                <li>CS 기상 스터디</li>
-            </ul>
+    <section id="information">
+        <h2 class="contents_title">Information</h2>
+            <div class="subInfo">
+                    <ul class="info_box">
+                        <li class="info_box_title">About Me</li>
+                        <li>박민영</li>
+                        <li>1997.12.01</li>
+                        <li>계원예술대학교 디지털미디어디자인학과 졸업</li>
+                        <li>세부전공 프로그래밍</li>
+                    </ul>
+                    <ul class="info_box">
+                        <li class="info_box_title">학부활동</li>
+                        <li>1학년 2학기 과대</li>
+                        <li>학생연구원</li>
+                        <li>2학년 1,2학기 성적장학금</li>
+                        <li>도서 마일리지 학과 대표 선정</li>
+                    </ul>
+                    <ul class="info_box">
+                        <li class="info_box_title">Educatoin & Study</li>
+                        <li>한국정보교육원[SQF기반] 자바 스프링으로 완성하는 공공데이터 활용 백엔드 개발자 양성</li>
+                        <li>월간 CS – React Deep Dive 발표형 스터디</li>
+                        <li>CS 기상 스터디</li>
+                    </ul>
 
-            <ul class="info_box">
-                <li class="info_box_title">Work</li>
-                <li>원더랩(One the Lab) 학생연구원</li>
-            </ul>
-    </div>
+                    <ul class="info_box">
+                        <li class="info_box_title">Work</li>
+                        <li>원더랩(One the Lab) 학생연구원</li>
+                    </ul>
+            </div>
+    </section>
 
-    <div class="skillInfo">
+    <section id="skillInfo">
         <h2 class="contents_title">Skill</h2>
         <div class="btn_box">
-            <button class="skillInfo_btn">한눈에 보기</button>
-            <button class="skillInfo_btn">기술 설명</button>
+            <button class="skillInfo_btn" id="skill_all_btn">한눈에 보기</button>
+            <button class="skillInfo_btn" id="skill_description_btn">기술 설명</button>
         </div>
-        <div class="skill_summary_ver">
-            <ul class="skill_summary_ver_wrap">
-                <li class="skill_summary_card">
+            <ul id="skill_contents_ver_wrap">
+                <li class="skill_contents_card">
                     <h3>SpringBoot</h3>
                     <p>MVC 패턴을 이해하고 있으며 사용자가 입력한 데이터베이스를 DB에 전달하고 화면에 전송할 수 있습니다. ajax 댓글 등록 기능 및 스크랩 기능 구현이 가능합니다.
-                        이미지 저장과 pageable을 사용한 페이지네이션 구현이 가능합니다. JPA Repository를 상속받아 규칙에 맞게 메서드를 구현 가능합니다. 이를 Service에서 가져와 원하는 비즈니스 메서드 구현이 가능합니다.</p>
+                        이미지 저장과 pageable을 사용한 페이지네이션 구현이 가능합니다.
+                    </p>
                 </li>
-                <li class="skill_summary_card">
+                <li class="skill_contents_card">
                     <h3>Spring</h3>
                     <p>Spring을 사용한 게시판 구현이 가능하며 페이지네이션 기능 구현이 가능합니다.</p>
                 </li>
-                <li class="skill_summary_card">
+                <li class="skill_contents_card">
                     <h3>Java</h3>
                     <p>기본 문법을 활용하여 공공데이터 API 파싱 및 웹사이트 구현이 가능합니다.</p>
                 </li>
-                <li class="skill_summary_card">
+                <li class="skill_contents_card">
                     <h3>Javascript</h3>
                     <p>자바스크립트 엔진의 동작원리를 이해하고 있습니다. 호이스팅 개념과 웹 애플리케이션의 이벤트 등록에 대해 알고 있으며 활용할 수 있습니다. Use strict를 사용하여 스크립트를 보다 오류없이 사용하려고 합니다. 반복문과 조건문 사용이 가능하며, forEach 와 map 메서드를 활용하여 배열을 반복하여 사용할 수 있습니다.</p>
                 </li>
-                <li class="skill_summary_card">
+                <li class="skill_contents_card">
                     <h3>JQuery</h3>
                     <p>디테일한 애니메이션이나 기능을 구현이 가능합니다. 변수 선언 및 원하는 함수를 만들어 사용할 수 있습니다. 원하는 효과를 구현하기 위해 CSS의 class를 만들어 적절하게 붙였다 뗄 수 있으며, 다양한 이벤트의 사용이 가능합니다. 제이쿼리를 자바스크립트로 변환하여 사용이 가능합니다.</p>
                 </li>
-                <li class="skill_summary_card">
+                <li class="skill_contents_card">
                     <h3>Node.js</h3>
                     <p>mysql과 javascript를 연동하여 로그인 및 서버 구현이 가능합니다.</p>
                 </li>
-                <li class="skill_summary_card">
+                <li class="skill_contents_card">
                     <h3>React</h3>
                     <p>리액트 Hook useState를 통한 동적 상태 관리가 가능합니다. 기본 프로젝트 제작이 가능합니다.</p>
                 </li>
-                <li class="skill_summary_card">
+                <li class="skill_contents_card">
                     <h3>Mysql /MariaDB</h3>
                     <p>쿼리문을 사용하여 CRUD 기능 구현이 가능합니다. 테이블 left, right 조인과 고아객체 사용이 가능합니다.</p>
                 </li>
             </ul>
-        </div>
-        <div class="skill_contents_ver">
-            <ul class="skill_summary_ver_wrap">
-                <li class="skill_contents_card"><h3>SpringBoot</h3></li>
-                <li class="skill_contents_card"><h3>Spring</h3></li>
-                <li class="skill_contents_card"><h3>Java</h3></li>
-                <li class="skill_contents_card"><h3>Javascript</h3></li>
-                <li class="skill_contents_card"><h3>JQuery</h3></li>
-                <li class="skill_contents_card"><h3>Node.js</h3></li>
-                <li class="skill_contents_card"><h3>React</h3></li>
-                <li class="skill_contents_card"><h3>Mysql /MariaDB</h3></li>
+
+            <ul id="skill_summary_ver_wrap">
+                <li class="skill_summary_card"><h3 id="springBoot">SpringBoot</h3></li>
+                <li class="skill_summary_card"><h3 id="spring">Spring</h3></li>
+                <li class="skill_summary_card"><h3 id="java">Java</h3></li>
+                <li class="skill_summary_card"><h3 id="javascript">Javascript</h3></li>
+                <li class="skill_summary_card"><h3 id="jQuery">JQuery</h3></li>
+                <li class="skill_summary_card"><h3 id="nodeJs">Node.js</h3></li>
+                <li class="skill_summary_card"><h3 id="react">React</h3></li>
+                <li class="skill_summary_card"><h3 id="db">Mysql /MariaDB</h3></li>
             </ul>
-        </div>
-    </div>
+    </section>
 
 
     <section class="projects">
@@ -254,9 +227,14 @@
 
 <div th:replace="~{fragments/footer::footer}"></div>
 </section>
-
+<!--            <ul class="info_box">-->
+<!--                <li class="info_box_title">Channel</li>-->
+<!--                <li>깃허브 주소: https://github.com/judy78799</li>-->
+<!--                <li>기술 블로그: https://judy0465.tistory.com/</li>-->
+<!--            </ul>-->
 <th:block layout:fragment="script">
     <script th:src="@{/javascript/information.js}"></script>
+    <script th:src="@{/javascript/skill.js}"></script>
     <script>
         document.getElementById('fetchImageButton').addEventListener('click', function() {
 
@@ -300,6 +278,8 @@
                     const imgElement = document.createElement('img');
                     imgElement.src = base64Image; // Base64 이미지를 img 태그에 설정.
                     imgElement.alt = 'Fetched Image'; // 이미지 설명 추가.
+                    // lazy loading 속성 추가하여 사용자가 해당 이미지가 화면에 보일 때까지 이미지를 로드하지 않도록 하여 초기 로딩 시간을 줄입니다.
+                    imgElement.loading = 'lazy'; // lazy loading 속성 추가.
 
                     // 기존 이미지를 제거하고 새 이미지를 추가하여 최신 상태 유지.
                     const imageContainer = document.getElementById('imageContainer');
@@ -354,76 +334,6 @@
     });
 
     topBtn.addEventListener("click", scrollToTop);
-
-
-
-
-
-
-let ulSet = document.getElementById("ulSet");   //우측 직사각형 박스 부분
-let totalNum = ulSet.childElementCount;
-
-let currentNum;
-let indexNum = 0;
-let imgRoof;
-
-for (var i = 1; i <= totalNum; i++) {
-    var list = document.getElementById("list" + i);
-    //앞은 배경과 배경 색상 뒤는 작은 선부분
-    list.innerHTML = "<span></span><span></span>" + list.innerHTML + "<span><span></span><span></span></span>";
-    list.onclick = function () {    //요소를 클릭했을 때
-        currentNum = Number(this.id.slice(4, 5));   //list4
-        console.log("currentNum은 ? : "+currentNum);
-        clearInterval(imgRoof); // 이전 타이머 정리
-        imgSetting();
-        ResetContents();
-    }
-}
-
-let ResetContents = function () {//초기화
-    for (var i = 1; i <= totalNum; i++) {
-        //document.getElementById("img" + i).classList.remove("imgChange");
-        document.getElementById("text" + i).classList.remove("textShow");
-        //document.getElementById("button" + i).classList.remove("buttonShow");
-        document.getElementById("list" + i).classList.remove("listShow");
-    }
-
-    //document.getElementById("img" + currentNum).style.zIndex = ++indexNum;// z인덱스와 이미지가 함께 붙어서
-    document.getElementById("text" + currentNum).style.zIndex = ++indexNum;//스타일에서 인덱스 처리를 안해줬기 때문에 text와 button도 z 인덱스 같이 올려준다. 이걸 안해주면 이미지만 움직이는 것을 볼 수 있다.
-    //document.getElementById("button" + currentNum).style.zIndex = ++indexNum;// 버튼도 zindex 숫자를 올려준다.
-    document.getElementById("ulSet").style.zIndex = ++indexNum;
-
-    //document.getElementById("img" + currentNum).classList.add("imgChange");
-    document.getElementById("text" + currentNum).classList.add("textShow");
-    //document.getElementById("button" + currentNum).classList.add("buttonShow");
-    document.getElementById("list" + currentNum).classList.add("listShow");
-   //이미 실행되고 나서의 애니메이션을 제거해줌.
-    // let clear = setInterval(function () {
-    //     if (currentNum != 1) {
-    //         document.getElementById("img" + (currentNum - 1)).classList.remove("imgChange");
-    //     }
-    //     clearInterval(clear);
-    // }, 5000);
- }
-
- //계속 반복해주는 함수
-let imgSetting = function () {
-    imgRoof = setInterval(function () {    //setInterval을 변수에 담아 clearInterval을 실행시키기 위함.
-        if (currentNum == totalNum) {
-            currentNum = 1;
-        } else {
-            currentNum++;
-        }
-        console.log(currentNum);
-        ResetContents();//이걸 해줘야 이미지,텍스트, 버튼 다 올라와져서 보임,
-    }, 5000)
-}
-
-currentNum = 1;/*그림이 1부터 시작한다.*/
-imgSetting();
-ResetContents();
-
-
     </script>
 </th:block>
 

@@ -7,19 +7,21 @@ body {
 #header {
     display: flex;
     width: 100vw;
-    height: 3vw;
+    height: 5vw;
     background-color: black;
     font-family: 'S-CoreDream-3Light';
     font-size: 1vw;
     font-weight: bold;
     color:white;
-    padding:1vw;
+    margin: 0 auto;
 }
 .header_contents{
-    width:98vw;
+    width:90vw;
     display:flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
+    background-color:red;
 }
 .my_logo{
     font-size: 1vw;

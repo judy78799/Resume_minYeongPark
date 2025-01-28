@@ -1,0 +1,148 @@
+#skillInfo{
+    width:100%;
+    height:30vw;
+    background-color:lightblue;
+}
+#skill_summary_ver_wrap{
+    width:100%;
+    height:15vw;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+.skill_summary_card{
+    width:20vw;
+    height:4vw;
+    padding:1vw;
+    background-color:black;
+    border-radius:0.5vw;
+    color:white;
+     font-weight:bold;
+}
+.skill_summary_card > h3,.skill_contents_card> h3{
+    font-size:1vw;
+    font-weight:bold;
+    margin:0.5vw 0vw;
+}
+.skill_contents_card > p{
+    font-size:0.7vw;
+    line-height:180%;
+    margin-top:0.5vw;
+}
+#skill_contents_ver_wrap{
+    display:none;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    width:100%;
+    height:23vw;
+    background-color:red;
+}
+#skill_contents_ver{
+    display:none;
+    width:100%;
+        height:100%;
+        display:flex;
+        justify-content:space-between;
+        flex-wrap:wrap;
+}
+.skill_contents_card{
+        width:20vw;
+        height:8vw;
+        padding:1vw;
+        background-color:black;
+        border-radius:0.5vw;
+        color:white;
+}
+#skill_summary_ver_wrap > .skill_summary_card {
+    position: relative;
+}
+/*전체 배경 Bar 부분 적용*/
+.skill_summary_card > span:nth-of-type(1){
+    position: absolute;
+    top: 2.95vw;
+    right: 0;
+    height: 0.2vw;/*바의 높이*/
+    width: 8vw;
+    background-color: white;
+}
+/*springBoot 바 영역*/
+#springBoot > span:nth-of-type(1){
+    position: absolute;
+    top: 3vw;
+    right: 0;
+    height: 0.2vw;/*바의 높이*/
+    width: 4vw;
+    background-color: #565656;
+    z-index:1;
+}
+/*spring 바 영역*/
+#spring > span:nth-of-type(1){
+    position: absolute;
+    top: 49%;
+    right: 0;
+    height: 0.2vw;/*바의 높이*/
+    width: 5vw;
+    background-color: #565656;
+    z-index:1;
+}
+/*java 바 영역*/
+#java > span:nth-of-type(1){
+    position: absolute;
+    top: 49%;
+    right: 0;
+    height: 0.2vw;/*바의 높이*/
+    width: 3vw;
+    background-color: #565656;
+    z-index:1;
+}
+/*javascript 바 영역*/
+#javascript > span:nth-of-type(1){
+    position: absolute;
+    top: 49%;
+    right: 0;
+    height: 0.2vw;/*바의 높이*/
+    width: 4vw;
+    background-color: #565656;
+    z-index:1;
+}
+/*jQuery 바 영역*/
+#jQuery > span:nth-of-type(1){
+    position: absolute;
+    top: 49%;
+    right: 0;
+    height: 0.2vw;/*바의 높이*/
+    width: 3vw;
+    background-color: #565656;
+    z-index:1;
+}
+/*nodeJs 바 영역*/
+#nodeJs > span:nth-of-type(1){
+    position: absolute;
+    top: 49%;
+    right: 0;
+    height: 0.2vw;/*바의 높이*/
+    width: 4vw;
+    background-color: #565656;
+    z-index:1;
+}
+/*react 바 영역*/
+#react > span:nth-of-type(1){
+    position: absolute;
+    top: 49%;
+    right: 0;
+    height: 0.2vw;/*바의 높이*/
+    width: 2vw;
+    background-color: #565656;
+    z-index:1;
+}
+/*db 바 영역*/
+#db > span:nth-of-type(1){
+    position: absolute;
+    top: 49%;
+    right: 0;
+    height: 0.2vw;/*바의 높이*/
+    width: 2vw;
+    background-color: #565656;
+    z-index:1;
+}
+

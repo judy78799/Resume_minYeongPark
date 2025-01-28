@@ -35,9 +35,6 @@ public class MainController {
   private ExternalService externalService;
 
   @Autowired
-  public BlogCrawlingService blogCrawlingService;
-
-  @Autowired
   private BlogsService blogsService;
 
 
