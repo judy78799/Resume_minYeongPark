@@ -237,6 +237,7 @@
     <!--기술 블로그 크롤링 영역 -->
     <section class="blogs_box">
         <h2 class="contents_title">기술 블로그</h2>
+        <!--
         <div class="blogs_wrap">
             <div th:each="blogsLists : ${blogsList}" class="blog_card">
                 <a th:href="${blogsLists.url}">
@@ -247,27 +248,22 @@
                 </a>
             </div>
         </div>
+        -->
         <th:block th:each="lists, status: ${list.getContent()}">
 
-            <a th:href="'/' + ${lists.id}" class="mega_card">
-                <div class="img_wrap">
-                    <img th:src="${lists.imageUrl}" th:alt="${lists.title}" class="mega_card_img" height="400">
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title" th:text="${lists.title}">[[${lists.title}]]</h4>
-                    <h4 class="card-content" th:text="${lists.content}">[[${lists.content}]]</h4>
-                    <div class="date_comment_wrap">
-                        <p class="card-date text-danger" th:text="${#temporals.format(lists.regTime, 'yyyy-MM-dd')}"></p>
-                        <p class="card-comments text-danger" th:text="'댓글 '+${lists.commentCount}"></p>
-                    </div>
-                    <!--<p class="card_user" th:text="'by. '+${lists.user}" readonly></p>-->
-                </div>
-            </a>
+            <div class="blog_card">
+                <a th:href="${lists.url}">
+                    <img th:src="${lists.image}" class="blog_img">
+                    <p th:text="${lists.title}" class="blog_title"></p>
+                    <p th:text="${lists.content}" class="blog_content"></p>
+                    <p th:text="${lists.date}"></p>
+                </a>
+            </div>
 
 
         <div class="pageNation-wrap">
             <a th:if="${nowPage > 1}" class="btn next_prev_btn"
-               th:href="@{/megazines/list(page=${(nowPage - 2)}, searchKeyword=${param.searchKeyword})}">
+               th:href="@{/(page=${(nowPage - 2)},}">
                 <img
                         th:src="@{/img/back.png}"
                         alt=""
@@ -289,7 +285,7 @@
                 >
             </a>
         </div>
-
+        </th:block>
     </section>
 
     <h4>전체 URL을 입력하면 결과값이 도출되어 나옵니다.</h4>

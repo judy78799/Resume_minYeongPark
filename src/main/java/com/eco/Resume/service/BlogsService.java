@@ -49,13 +49,14 @@ public class BlogsService {
         Element content = contents.get(i); // i번째 요소 가져오기
         String style = content.select("a.link-article[data-tiara-image]").attr("abs:data-tiara-image");
 
-        System.out.println("contents는? : "+contents);
+        System.out.println("contents는? : " + contents);
         // 크롤링한 콘텐츠 텍스트 가져오기
         String content_element = contents.select("p.summary").text(); // 변수 이름 변경
 
         // 콘텐츠 길이 확인 및 자르기
-        if (content_element.length() > 1000) { // 255자는 예시입니다.
-          content_element = content_element.substring(0, 1000); // 자르기
+        String subStringElement = null;
+        if (content_element.length() > 255) { // 255자는 예시입니다.
+          subStringElement = content_element.substring(0, 255);
         }
 
         //System.out.println("스타일 값을 가져오는가? : " + style);
@@ -63,7 +64,7 @@ public class BlogsService {
             .image(style) // style 속성 가져오기) // 이미지 URL
             .url(content.select("a").attr("abs:href"))
             .title(content.select("strong.title").text())
-            .content(content.select("p.summary").text())
+            .content(subStringElement)
             .date(content.select("span.date").text())
             .build();
 

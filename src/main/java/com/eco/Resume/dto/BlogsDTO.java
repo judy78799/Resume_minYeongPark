@@ -32,5 +32,37 @@ public class BlogsDTO {
     this.content = content;
     this.date = date;
   }
+
+
+  // 기본 생성자 추가
+  public BlogsDTO() {
+  }
+
+  // Getters 와 Setters 선언
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getContent() {
+    return content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
 }
+
+
 
