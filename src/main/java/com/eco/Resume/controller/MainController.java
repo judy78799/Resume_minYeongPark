@@ -43,7 +43,7 @@ public class MainController {
   private static final Logger logger = LoggerFactory.getLogger(MainController.class);  //클래스 생성자
 
   @GetMapping("/")
-  public String main(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws Exception{
+  public String main(Model model, @PageableDefault(page = 0, size = 4, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws Exception{
 
     //날짜와 시간을 표기해주기 위해 LocalDateTime 사용함.
     LocalDateTime now = LocalDateTime.now();
@@ -63,8 +63,25 @@ public class MainController {
     model.addAttribute("nowPage", nowPage);
     model.addAttribute("startPage", startPage);
     model.addAttribute("endPage", endPage);
-
+    model.addAttribute("maxPage", 5); // 한 화면에 5개의 페이지네이션
     return "main";  // main.html로 이동
+  }
+
+  @RestController
+  @RequestMapping("/api/blogs")
+  public class BlogApiController {
+
+    @Autowired
+    private BlogsService blogsService;
+
+    @GetMapping
+    public ResponseEntity<Page<BlogsDTO>> getBlogs(
+        @PageableDefault(page = 0, size = 4, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+
+      Page<BlogsDTO> blogs = blogsService.getListItemPage(pageable);
+
+      return ResponseEntity.ok(blogs);
+    }
   }
 
   //POST 처리 로직

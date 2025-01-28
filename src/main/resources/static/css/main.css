@@ -2,7 +2,7 @@
     width:90vw;
     height:100%;
     margin:0 auto;
-    background-color:pink;
+    /*background-color:pink;*/
 }
 .ecoLogo_DateAndTime{
     display:flex;
@@ -17,7 +17,7 @@
     margin:0 auto;
     width:80%;
     height:20vw;
-    background-color:green;
+    /*background-color:green;*/
 }
 .faceImg{
     width:16vw;
@@ -37,7 +37,7 @@
     line-height:180%;
 }
 .BasicInfoTable{
-width:100%;
+    width:100%;
     border-collapse:collapse;
     border:1px solid black;
     font-size:1vw;
@@ -46,26 +46,28 @@ width:100%;
     border:1px solid black;
     padding:0.8vw 0.5vw;
 }
-#information{
-    width:100%;
-    height:20vw;
-    background-color:ivory;
-}
-.subInfo{
-    display:flex;
-    justify-content:space-between;
-    width:100%;
-    height:100%;
-    background-color:coral;
-    font-size:1vw;
-}
+/*section 공통 .contents_title 클래스*/
 .contents_title{
     width:100%;
     height:2vw;
     font-size:1.5vw;
     font-weight:bold;
     padding:0vw 0.8vw;
-    border-left:0.3vw solid black;
+    margin: 1vw 0;
+    border-left:0.3vw solid #14227A;
+}
+#information{
+    width:100%;
+    height:18vw;
+    /*background-color:red;*/
+}
+.subInfo{
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+    height:100%;
+    font-size:1vw;
+    /*background-color:green;*/
 }
 .btn_box{
     display:flex;
@@ -103,7 +105,7 @@ width:100%;
 #projects{
     width:100%;
     height:20vw;
-    background-color:blue;
+    /*background-color:blue;*/
 }
 .project_wrap{
     display:flex;
@@ -111,7 +113,7 @@ width:100%;
     justify-content:space-between;
     width:100%;
     height:17vw;
-    background-color:tomato;
+    /*background-color:tomato;*/
 }
 .project_box{
     display:block;
@@ -119,8 +121,8 @@ width:100%;
     height:15vw;
     padding: 1vw;
     border-radius:0.5vw;
-    background-color:white;
     line-height:180%;
+    /*background-color:white;*/
 }
 .project_img{
     width:fit-content;
@@ -154,15 +156,15 @@ width:100%;
 .tags{
     padding:0.1vw 0.3vw;
     font-size:0.7vw;
-    background-color:#2E2E2E;
     color:white;
     border-radius: 0.3vw;
     margin-right:0.15vw;
+    background-color:#2E2E2E;
 }
 .blogs_box{
     width:100%;
     height:20vw;
-    background-color:purple;
+    /*background-color:purple;*/
 }
 .blogs_wrap{
      display:flex;
@@ -174,8 +176,8 @@ width:100%;
     height:10vw;
     padding:1vw;
     border-radius:0.5vw;
-    background-color:ivory;
     color:black;
+    /*background-color:ivory;*/
 }
 .blog_img{
     width:5vw;
@@ -213,7 +215,7 @@ width:100%;
     width:5vw;
     height:2vw;
     border-radius:0.3vw;
-    background-color:red;
+    /*background-color:red;*/
 }
 #topBtn{
     display: none; /* 페이지의 상단으로 올라가기 전까지 버튼 숨김 */
@@ -224,11 +226,11 @@ width:100%;
         font-size: 18px;
         border: none;
         outline: none;
-        background-color:#3d3d3d;
         color: white;
         cursor: pointer; /* 해당 태그 위에 위치하는 마우스의 모양이 변한다(손가락 포인터 모양으로).wait-모레시계 모양으로 바뀜 */
         padding: 1vw;
         border-radius: 1vw;
+        background-color:#3d3d3d;
 }
 #topBtn:hover {  /*호버하면 색상이 바뀌는 기능*/
   background-color: #555;
