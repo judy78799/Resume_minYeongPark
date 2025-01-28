@@ -1,31 +1,34 @@
 package com.eco.Resume.controller;
 
-import com.eco.Resume.dto.Blogs;
+import com.eco.Resume.dto.BlogsDTO;
 import com.eco.Resume.dto.ImageUrlRequest;
-import com.eco.Resume.service.BlogCrawlingService;
 import com.eco.Resume.service.BlogsService;
 import com.eco.Resume.service.ExternalService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory; // SLF4J Logger 임포트
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
+import org.springframework.data.domain.Pageable; // 올바른 import
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Base64;
+
 import java.util.List;
-import java.util.zip.GZIPInputStream;
+
 
 
 @Controller
@@ -37,11 +40,10 @@ public class MainController {
   @Autowired
   private BlogsService blogsService;
 
-
-  //클래스 생성자
+  private static final Logger logger = LoggerFactory.getLogger(MainController.class);  //클래스 생성자
 
   @GetMapping("/")
-  public String main(Model model) throws Exception{
+  public String main(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws Exception{
 
     //날짜와 시간을 표기해주기 위해 LocalDateTime 사용함.
     LocalDateTime now = LocalDateTime.now();
@@ -50,8 +52,17 @@ public class MainController {
     model.addAttribute("now", formatNow);
 
     //블로그 크롤링 데이터
-    List<Blogs> blogsList = blogsService.getBlogsDatas();
-    model.addAttribute("blogsList", blogsList);
+    Page<BlogsDTO> list;
+    list = blogsService.getListItemPage(pageable); // 메인페이지 리스트 부분    List<Blogs> blogsList = blogsService.getBlogsDatas();
+    model.addAttribute("list", list);
+
+    int nowPage = list.getPageable().getPageNumber() + 1; // 현재 페이지
+    int startPage = Math.max(nowPage - 4, 1);
+    int endPage = Math.min(nowPage + 5, list.getTotalPages());
+
+    model.addAttribute("nowPage", nowPage);
+    model.addAttribute("startPage", startPage);
+    model.addAttribute("endPage", endPage);
 
     return "main";  // main.html로 이동
   }
@@ -122,6 +133,22 @@ public class MainController {
     } catch (Exception e) {
       e.printStackTrace(); // 오류 로그 출력
       return "Error fetching image: " + e.getMessage(); // 에러 메시지 반환
+    }
+  }
+
+  @PostMapping("/crawl")
+  public ResponseEntity<String> crawlBlogs() {
+    try {
+      // 크롤링 및 저장
+      List<BlogsDTO> blogs = blogsService.getBlogsDatas();
+      blogsService.saveCrawledBlogs(blogs);
+      return ResponseEntity.ok("블로그 크롤링 및 저장 성공.");
+    } catch (IOException e) {
+      logger.error("블로그 크롤링 중 에러 발생: {}", e.getMessage());
+      return ResponseEntity.status(500).body("블로그 크롤링 실패: " + e.getMessage());
+    } catch (Exception e) {
+      logger.error("알 수 없는 에러 발생: {}", e.getMessage());
+      return ResponseEntity.status(500).body("알 수 없는 에러 발생: " + e.getMessage());
     }
   }
 

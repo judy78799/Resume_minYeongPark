@@ -26,6 +26,7 @@ repositories {
 dependencies {
 	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'	//웹 서버 애플리케이션으로서 동작
 	implementation 'com.fasterxml.jackson.core:jackson-databind'// Jackson 명시적으로 추가
 	implementation 'org.jsoup:jsoup:1.15.3' //크롤링 위한 라이브러리 설치 
@@ -35,6 +36,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'mysql:mysql-connector-java:8.0.33' // 최신 버전으로 변경할 수 있습니다
+
 }
 
 tasks.named('test') {

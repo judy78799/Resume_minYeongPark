@@ -12,10 +12,6 @@
 <div th:replace="~{fragments/header::header}" class="header"></div>
 <section layout:fragment="content" id="wrap">
     <h2 hidden>박민영의 이력서</h2>
-    <div class="ecoLogo_DateAndTime">
-        <img th:src="@{/img/ecoLogo.png}" alt="ecoLogo" class="ecoLogo">
-        <p th:text="${now}"></p>
-    </div>
 
     <section id="BasicInfo">
         <h2 class="contents_title">안녕하세요 솔선수범한 개발자 박민영입니다.</h2>
@@ -39,20 +35,24 @@
             <figure>
                 <figcaption id="text3" class="text">
                     <p>
-                        학부에서 웹사이트 제작과 유니티 언리얼 엔진을 통한 다양한 게임을 구현하였습니다. JQuery 라이브러리, Javascript를 사용하여 동적 웹사이트들을 제작하였고, 유니티와 립모션 기기를 사용한 농구 게임, Oculus Quest 2기기를 사용하여 VR 알파 세대를 위한 인테리어 프로젝트 등 다양한 프로젝트를 진행하였습니다.
-                        개발에 관심을 가지며 방학 중 학생연구원 활동으로 교수님, 학우 한 명과 VR 비트 월드 프로젝트를 진행하였습니다. 기기 관련 이슈와 멀티 유저 관련 이슈를 해결하고 문서화하면서 사용자 중점의 개발에 대해 가치를 느끼게 되었습니다.
-                        이후 한국 정보교육원에서 JAVA, Spring Boot, Spring, Javascript (JQuery), MYSQL, MariaDB 등의 전반적인 실무 위주의 백엔드 개발 교육을 6개월간 받았습니다.
-                        1차 프로젝트에서는 MYSQL DB를 사용하여 공공데이터 API 파싱 게시판을 구현하였습니다. JDBC 드라이버를 데이터베이스에 연결하였으며, 생성자 클래스, 실행 클래스, JsonData 파싱 클래스 총 3개의 클래스를 전체 메서드 구조로 구성하였습니다. Scanner 객체를 사용하여 사용자 입력값을 받아 PreparedStatement 객체와 쿼리문(바인드 변수)을 사용하여 구현하였습니다.
-                        2차 팀 프로젝트에서는 팀장 역할을 맡아 MZ 세대를 위한 여행 웹사이트를 제작하였습니다. JQuery와 Javascript를 사용하여 동적인 화면을 구현하였습니다. 랜덤 주사위 돌리기 기능으로 랜덤 값에 해당하는 지역 이미지를 결과로 보여주었습니다. 당시 유행이었던 MBTI 테스트를 웹사이트 체류 시간을 늘리기 위해 구성하였습니다. 사용자가 선택지를 클릭했을 때 int 값이 누적된 값을 합산하여 MBTI 결과가 각기 다른 4가지 이미지로 도출될 수 있습니다.
-                        3차 파이널 팀 프로젝트는 Spring Boot, Gradle, Thymeleaf 문법을 사용하여 진행되었으며, 2030 세대를 위한 셀프 인테리어 웹사이트를 주제로 선정하여 진행하였습니다. 그중 팀장 역할을 맡아 플래너 관리와 팀원과의 원활한 소통을 위한 상담을 진행하였습니다. 기능 구현으로는 인테리어 팁 앤 매거진 메뉴를 선택하였습니다. 매거진 글 등록, 수정, 삭제, 검색 기능과 페이지 네이션, Ajax 댓글 기능, Ajax 스크랩 기능을 구현하였습니다. 팀원의 트러블 슈팅을 도우며 디버깅을 더욱 빠르게 진행할 수 있었습니다.
+                        학부에서 Javascript 웹사이트 제작과 C# 유니티 언리얼 엔진을 통한 다양한 게임을 구현하였습니다.
+                        개발에 관심을 가지며 방학 중 학생연구원 활동으로 VR 비트 월드 프로젝트를 진행하였습니다. Oculus 기기와 멀티 유저 관련 이슈를 해결하고 문서화하면서 사용자 중점의 개발에 대해 가치를 느꼈습니다.
+                        이후 한국 정보교육원에서 JAVA,Spring Boot,Spring,Javascript,JQuery,Oracle,MYSQL,MariaDB 등의 전반적인 실무 위주의 백엔드 개발 교육을 6개월간 받았습니다.
+                        <br>&nbsp;1차 프로젝트에서는 MYSQL DB를 사용하여 공공데이터 API 파싱 게시판을 구현하였습니다. JDBC 드라이버를 데이터베이스에 연결하였으며, 생성자 클래스, 실행 클래스, JsonData 파싱 클래스와 Scanner 객체를 사용하여 사용자 입력값을 받아 PreparedStatement 객체와 쿼리문(바인드 변수)을 사용하여 구현하였습니다.
+                        <br>&nbsp;2차 팀 프로젝트에서는 팀장 역할을 맡아 MZ 세대를 위한 여행 웹사이트를 제작하였습니다. JQuery와 Javascript를 사용하여 화면을 구현하였습니다.
+                        <br>&nbsp;3차 파이널 팀 프로젝트는 Spring Boot, Gradle, Thymeleaf 문법을 사용하여 진행되었으며, 2030 세대를 위한 셀프 인테리어 웹사이트를 주제로 선정하여 진행하였습니다. 그중 팀장 역할을 맡아 플래너 관리와 팀원과의 원활한 소통을 위한 상담을 진행하였습니다.
+                        기능 구현으로는 인테리어 팁 앤 매거진 메뉴를 구현하였습니다. 매거진 글 등록, 수정, 삭제, 검색 기능과 페이지 네이션, Ajax 댓글 기능, Ajax 스크랩 기능을 구현하였습니다. 팀원의 트러블 슈팅을 도우며 디버깅을 더욱 빠르게 진행할 수 있었습니다.
                     </p>
                 </figcaption>
             </figure>
             <figure>
                 <figcaption id="text2" class="text">
                     <p>
-                        스프링부트 3차 프로젝트 팀장을 맡아 진행하였습니다. 과제 수행에 어려움을 겪거나 진로를 변경하는 팀원 등 각기 다른 입장의 팀원들과 프로젝트를 진행했습니다. 초반 회의를 통해 팀원의 과반수가 프로젝트 이해에 어려움을 겪고 있다는 문제를 인식하게 되었습니다. 어떻게 하면 팀원들이 쉽게 프로젝트 접근을 쉽게 할 수 있을 지 고안하며 해당 문제를 해결하기 위해 다양한 방법으로 코드 분석을 시도하였습니다. 처음엔 모르는 게 많아 메서드 블록 단위로 분석하였지만 이후엔 M-V-C 패턴에서 컨트롤러를 방향 지표로 잡는 C-M-V 순서로 접근하는 방법을 정립하였고 이를 문서화 하여 팀원들에게 공유함으로써 팀원의 프로젝트 이해에 도모하였습니다.
-                        학습 지향성 및 지속가능한 성장을 위해 격려하며, 주마다 과제를 스스로 설정하고 피드백 하였습니다. 프로젝트 중 후반에는 플랜 관리를 위해 매일 모여 각자 결과물을 피드백 하는 방식을 고안하여 진행하였습니다. 구현에 난이도 있는 기술의 경우 함께 트러블슈팅을 진행하며 전반적인 기능 구현을 도와 빠른 문제 해결을 가능 하도록 하였습니다. 기존 계획의 차선책으로서 저와 다른 팀원이 조금씩 역할을 추가로 분담하여 전체 프로젝트를 마무리 지을 수 있었습니다. 결과적으로 기능 구현에 오류 없이 3차 프로젝트를 마무리 지었습니다. 수행에 어려움이 생기더라도 자신에게 주어진 역할과 임무를, 책임감을 가지고 완수해야 한다고 생각합니다.
+                        스프링부트 3차 프로젝트 팀장을 맡아 진행하였습니다. 과제 수행에 어려움을 겪거나 진로를 변경하는 팀원 등 각기 다른 입장의 팀원들과 프로젝트를 진행했습니다.
+                        <br>초반 회의를 통해 팀원의 과반수가 프로젝트 이해에 어려움을 겪고 있다는 문제를 인식하게 되었습니다. 어떻게 하면 팀원들이 쉽게 프로젝트 접근을 쉽게 할 수 있을 지 고안하며 해당 문제를 해결하기 위해 다양한 방법으로 코드 분석을 시도하였습니다.
+                        <br>처음엔 모르는 게 많아 메서드 블록 단위로 분석하였습니다. 이후엔 M-V-C 패턴에서 컨트롤러를 방향 지표로 잡는 C-M-V 순서로 접근하는 방법을 정립하였고 이를 문서화 하여 팀원들에게 공유함으로써 팀원의 프로젝트 이해에 도모하였습니다.
+                        학습 지향성 및 지속가능한 성장을 위해 격려하며, 주마다 과제를 스스로 설정하고 피드백 하였습니다. 이후 플랜 관리를 위해 매일 모여 각자 결과물을 피드백 하는 방식을 고안하여 진행하였습니다. 구현에 난이도 있는 기술의 경우 함께 트러블슈팅을 진행하며 전반적인 기능 구현을 도와 빠른 문제 해결을 가능 하도록 하였습니다. 기존 계획의 차선책으로서 저와 다른 팀원이 조금씩 역할을 추가로 분담하여 전체 프로젝트를 마무리 지을 수 있었습니다.
+                        결과적으로 기능 구현에 오류 없이 3차 프로젝트를 마무리 지었습니다. 수행에 어려움이 생기더라도 자신에게 주어진 역할과 임무를, 책임감을 가지고 완수해야 한다고 생각합니다.
                         이와 같은 솔선수범한 태도와 끝까지 완수해 내는 책임감이 저의 큰 장점입니다.
                     </p>
                 </figcaption>
@@ -62,8 +62,8 @@
                     <p>
                         학부에서 프로그래밍을 전공하여 C#과 JavaScript 두 가지 언어를 함께 학습하면서 서로 다른 언어이지만 사용하는 방법은 비슷하다는 점을 알 수 있었기 때문에 새로운 언어에 도전할 수 있는 원동력이 되었습니다.
                         학생 연구원에 참여하여 사용자 중심의 개발 방향성을 지향하게 되었으며, 개발자로서의 진로를 확고히 하였습니다.
-                        기획 및 디자이너와 협업 할 수 있는 기회가 있어, 졸업 작품으로 서비스 웹사이트를 제작했습니다.
-                        이후 백엔드 개발자로서 전문성을 키우기 위해 한국정보교육원에서 6개월 간 학습하였습니다.
+                        <br>기획 및 디자이너와 협업 할 수 있는 기회가 있어, 졸업 작품으로 서비스 웹사이트를 제작했습니다.
+                        <br>이후 백엔드 개발자로서 전문성을 키우기 위해 한국정보교육원에서 6개월 간 학습하였습니다.
                         언어로는 Java, JavaScript, DB로는 MySQL, MariaDB, Oracle, 그리고 Spring Boot를 학습하며 총 3개의 프로젝트를 진행했습니다.
                         그 중, 2차와 3차 팀 프로젝트에서는 팀장 역할을 맡아 프로젝트를 이끌었습니다.
                         이러한 경험을 통해 기술적 역량 뿐만 아니라 팀워크와 리더십 역량 또한 키울 수 있었습니다. 감사합니다.
@@ -160,43 +160,77 @@
     </section>
 
 
-    <section class="projects">
+    <section id="projects">
         <h2 class="contents_title">Projects</h2>
         <ul class="project_wrap">
-            <li class="project_box">
-                <a href="">
-                    <img th:src="@{/img/artInHome.png}" alt="">
-                    <h3 class="blog_title">아트인 홈 Art-In-Home</h3>
-                    <p>2024.09~2024.10 (2개월)</p>
-                    <p>2030세대를 위한 셀프 인테리어 웹사이트 제작</p>
+            <li>
+                <a href="" class="project_box">
+                    <img th:src="@{/img/artInHome.png}" alt="" class="project_img">
+                    <div class="project_description">
+                        <p class="project_date">2024.09~2024.10</p>
+                        <p class="project_title">아트인 홈 Art-In-Home</p>
+                        <ul class="tag_list">
+                            <li class="tags">springBoot</li>
+                            <li class="tags">Java</li>
+                            <li class="tags">Javascript</li>
+                            <li class="tags">MariaDB</li>
+                            <li class="tags">Apache Tomcat</li>
+                        </ul>
+                        2030세대를 위한 셀프 인테리어 웹사이트 제작
+                    </div>
                 </a>
             </li>
-            <li class="project_box">
-                <a href="">
-                    <img th:src="@{/img/tourUs.png}" alt="">
-                    <h3 class="blog_title">투어 어스 Tour-Us</h3>
-                    <p>2024.07~2024.8 (2개월)</p>
-                    <p>Z세대를 위한 힐링 여행지 추천 웹사이트</p>
+            <li>
+                <a href="" class="project_box">
+                    <img th:src="@{/img/tourUs.png}" alt="" class="project_img">
+                    <div class="project_description">
+                        <p class="project_date">2024.07~2024.8</p>
+                        <p class="project_title">투어 어스 Tour-Us</p>
+                        <ul class="tag_list">
+                            <li class="tags">Javascript</li>
+                            <li class="tags">JQuery</li>
+                        </ul>
+                        Z세대를 위한 힐링 여행지 추천 웹사이트
+                    </div>
                 </a>
             </li>
-            <li class="project_box">
-                <img th:src="@{/img/publicApi.png}" alt="">
-                <h3 class="blog_title">창업 교육과정 조회서비스</h3>
-                <p>2024.05~2024.06 (1개월)</p>
-                <p>창업교육과정 조회서비스 공공 데이터 API CRUD 기능 구현</p>
+            <li>
+            <a class="project_box">
+                <img th:src="@{/img/publicApi.png}" alt="" class="project_img">
+                <div class="project_description">
+                    <p class="project_date">2024.05~2024.06</p>
+                    <p class="project_title">창업 교육과정 조회서비스</p>
+                    <ul class="tag_list">
+                        <li class="tags">Java</li>
+                        <li class="tags">Javascript</li>
+                        <li class="tags">MySQL</li>
+                        <li class="tags">Restful API</li>
+                        <li class="tags">Apache Tomcat</li>
+                    </ul>
+                    창업교육과정 조회서비스 공공 데이터 API CRUD 기능 구현
+                </div>
+            </a>
             </li>
-            <li class="project_box">
-                <img th:src="@{/img/plasticWorld.png}" alt="">
-                <h3 class="blog_title">Welcome To Plastic World</h3>
-                <p>2023.10~2023.11 (2개월)</p>
-                <p>플라스틱 해양오염 심각성 알리기 웹사이트</p>
+            <li>
+                <a href="" class="project_box">
+                <img th:src="@{/img/plasticWorld.png}" alt="" class="project_img">
+                <div class="project_description">
+                    <p class="project_date">2023.10~2023.11</p>
+                    <p class="project_title">Welcome To Plastic World</p>
+                    <ul class="tag_list">
+                        <li class="tags">Javascript</li>
+                        <li class="tags">JQuery</li>
+                    </ul>
+                    플라스틱 해양오염 심각성 알리기 웹사이트
+                </div>
+                </a>
             </li>
         </ul>
 
-        <div class="project_explanation">
-            <h2>아트인 홈 프로젝트 설명</h2>
-            <p></p>
-        </div>
+<!--        <div class="project_explanation">-->
+<!--            <h2>아트인 홈 프로젝트 설명</h2>-->
+<!--            <p></p>-->
+<!--        </div>-->
     </section>
 
 
@@ -213,6 +247,49 @@
                 </a>
             </div>
         </div>
+        <th:block th:each="lists, status: ${list.getContent()}">
+
+            <a th:href="'/' + ${lists.id}" class="mega_card">
+                <div class="img_wrap">
+                    <img th:src="${lists.imageUrl}" th:alt="${lists.title}" class="mega_card_img" height="400">
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title" th:text="${lists.title}">[[${lists.title}]]</h4>
+                    <h4 class="card-content" th:text="${lists.content}">[[${lists.content}]]</h4>
+                    <div class="date_comment_wrap">
+                        <p class="card-date text-danger" th:text="${#temporals.format(lists.regTime, 'yyyy-MM-dd')}"></p>
+                        <p class="card-comments text-danger" th:text="'댓글 '+${lists.commentCount}"></p>
+                    </div>
+                    <!--<p class="card_user" th:text="'by. '+${lists.user}" readonly></p>-->
+                </div>
+            </a>
+
+
+        <div class="pageNation-wrap">
+            <a th:if="${nowPage > 1}" class="btn next_prev_btn"
+               th:href="@{/megazines/list(page=${(nowPage - 2)}, searchKeyword=${param.searchKeyword})}">
+                <img
+                        th:src="@{/img/back.png}"
+                        alt=""
+                        style="cursor: pointer; width: 1.5vw; height: 1.5vw;"
+                >
+            </a>
+
+            <th:block th:each="page: ${#numbers.sequence(startPage, endPage)}">
+                <a th:if="${page != nowPage}" th:href="@{/(page = ${page - 1}}" th:text="${page}" class="btn"></a>
+                <strong th:if="${page == nowPage}" th:text="${page}" style="color: red" class="btn"></strong>
+            </th:block>
+
+            <a th:if="${nowPage < endPage}" class="btn next_prev_btn"
+               th:href="@{/(page=${nowPage}, searchType=${param.searchType})}">
+                <img
+                        th:src="@{/img/next2.png}"
+                        alt=""
+                        style="cursor: pointer; width: 1.5vw; height: 1.5vw;"
+                >
+            </a>
+        </div>
+
     </section>
 
     <h4>전체 URL을 입력하면 결과값이 도출되어 나옵니다.</h4>

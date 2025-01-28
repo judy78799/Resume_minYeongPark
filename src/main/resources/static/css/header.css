@@ -8,12 +8,11 @@ body {
     display: flex;
     width: 100vw;
     height: 5vw;
-    background-color: black;
+    background-color: rgba(255, 255, 255, 0.59);
     font-family: 'S-CoreDream-3Light';
     font-size: 1vw;
     font-weight: bold;
-    color:white;
-    margin: 0 auto;
+    color:black;
 }
 .header_contents{
     width:90vw;
@@ -21,9 +20,12 @@ body {
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-    background-color:red;
 }
 .my_logo{
     font-size: 1vw;
     color:black;
+}
+.login_out{
+    display:flex;
+    justify-content:space-between;
 }

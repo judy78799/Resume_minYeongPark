@@ -100,9 +100,9 @@ width:100%;
     font-weight:bold;
     margin-bottom:1vw;
 }
-.projects{
+#projects{
     width:100%;
-    height:40vw;
+    height:20vw;
     background-color:blue;
 }
 .project_wrap{
@@ -110,21 +110,54 @@ width:100%;
     flex-wrap:wrap;
     justify-content:space-between;
     width:100%;
-    height:15vw;
+    height:17vw;
     background-color:tomato;
 }
 .project_box{
+    display:block;
     width:20vw;
-    height:13vw;
-    padding:1vw;
+    height:15vw;
+    padding: 1vw;
     border-radius:0.5vw;
-    background-color:lightcoral;
+    background-color:white;
+    line-height:180%;
 }
-.project_explanation{
+.project_img{
+    width:fit-content;
+    height:4vw;
+    margin: 0 auto;
+    text-align:center;
+}
+.project_description{
     width:100%;
-    height:24vw;
-    border-radius:0.5vw;
-    background-color:tomato;
+    height:8vw;
+    font-size:1vw;
+    color:black;
+    line-height:150%;
+    margin-top: 1vw;
+}
+.project_title{
+    font-size:1.2vw;
+    font-weight:bold;
+    color:black;
+}
+.project_date{
+    font-size:0.8vw;
+    color:black;
+}
+.tag_list{
+   display:flex;
+   flex-wrap: wrap;
+   width:100%;
+   margin:0.2vw 0 0.6vw 0;
+}
+.tags{
+    padding:0.1vw 0.3vw;
+    font-size:0.7vw;
+    background-color:#2E2E2E;
+    color:white;
+    border-radius: 0.3vw;
+    margin-right:0.15vw;
 }
 .blogs_box{
     width:100%;
@@ -143,16 +176,25 @@ width:100%;
     border-radius:0.5vw;
     background-color:ivory;
     color:black;
-    line-height:180%;
 }
 .blog_img{
     width:5vw;
     height:5vw;
 }
 .blog_title{
-    font-size:1vw;
+    font-size:1.2vw;
     font-weight:bold;
     color:black;
+}
+.blog_date{
+    font-size:0.8vw;
+    color:black;
+}
+.blog_description{
+    font-size:1vw;
+    color:black;
+     line-height:150%;
+     margin-top: 1vw;
 }
 .blog_content{
     font-size:0.8vw;
