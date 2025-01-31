@@ -37,7 +37,14 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'mysql:mysql-connector-java:8.0.33' // 최신 버전으로 변경할 수 있습니다
-
+	//셀레니움을 위한 의존성 추가
+	// JUnit 5
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+	// Mockito
+	testImplementation 'org.mockito:mockito-core:3.11.2'
+	// Selenium
+	implementation 'org.seleniumhq.selenium:selenium-java:4.25.0'
+	implementation 'org.modelmapper:modelmapper:3.1.0' // 최신 버전으로 변경 가능
 }
 
 tasks.named('test') {
