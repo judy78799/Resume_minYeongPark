@@ -2,7 +2,7 @@ let currentPage = 0;
 
 function loadBlogs(page) {
     $.ajax({
-        url: `/api/blogs?page=${page}&size=1&sort=date,desc`, // 한번에 가져올 블로그 수를 4로 설정, // 날짜 기준으로 내림차순 정렬
+        url: `/api/blogs?page=${page}&size=4&sort=date,desc`, // 한번에 가져올 블로그 수를 4로 설정, // 날짜 기준으로 내림차순 정렬
         method: 'GET',
         cache: false, // 캐시 방지
         success: function(data) {

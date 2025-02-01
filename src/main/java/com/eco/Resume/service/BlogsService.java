@@ -28,14 +28,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@Service
+
 @Transactional
 @RequiredArgsConstructor
+@Service
 public class BlogsService {
 
   public WebDriver driver;
 
-
+  @Autowired
   private final BlogsRepository blogsRepository;
 
   private static final Logger logger = LoggerFactory.getLogger(MainController.class);  //클래스 생성자
@@ -216,65 +217,62 @@ public class BlogsService {
 //    return blogsList;
 //  }
 
+//잠시 보류
+//@PostConstruct
+//  public List<BlogsDTO> getBlogsDatas() throws IOException {
+//      List<BlogsDTO> blogsList = new ArrayList<>();
+//    try {
+//      Document document = Jsoup.connect(Blogs_URL).get();
+//
+//      //블로그 리스트 덩어리 한개
+//      Elements contents = document.select("div.area-common div.article-content");
+//      //int Blog_size = Math.min(contents.size(), 4); // contents의 크기와 4 중 작은 값 선택
+//      Elements content_element_substring = document.select("p.summary"); // 크롤링한 텍스트 가져오기
+//
+//
+//      //콘텐츠의 크기만큼 가져오기
+//      for (int i = 0; i <contents.size(); i++) {
+//        Element content = contents.get(i); // i번째 요소 가져오기
+//        String style = content.select("a.link-article[data-tiara-image]").attr("abs:data-tiara-image");
+//        String content_element_string = document.select("p.summary").text();
+//        Element each_content = content_element_substring.get(i);
+//        // 크롤링한 콘텐츠 텍스트 가져오기
+//        String content_element = each_content.text();
+//
+//        // 각각의 콘텐츠 길이 확인 및 자르기
+////        String subStringElement = content_element.length() > 255
+////            ? content_element.substring(0, 255)
+////            : content_element; // 길이 확인 후 자르기
+//
+//        //System.out.println("스타일 값을 가져오는가? : " + style);
+//        BlogsDTO blogs = BlogsDTO.builder()
+//            .image(style) // style 속성 가져오기) // 이미지 URL
+//            .url(content.select("a").attr("abs:href"))
+//            .title(content.select("strong.title").text())
+//            .content(content_element_string)
+//            .date(content.select("span.date").text())
+//            .build();
+//
+//        blogsList.add(blogs);
+//        Blogs blogsEntity = blogs.createItem();
+//        blogsRepository.save(blogsEntity);
+//      }
+//      //System.out.println("for 문 밖에서 값을 가져오는가? : "+ contents.select("p.thumbnail").attr("style"));
+//      // 데이터베이스에 저장.
+//
+//    } catch (IOException e) {
+//      // 예외 처리 로직.
+//      logger.error("Error while crawling blogs: {}", e.getMessage());
+//      // 예외가 발생했을 경우 빈 리스트를 반환할 수 있음.
+//      return Collections.emptyList();
+//    }
+//      return blogsList;
+//  }
 
-@PostConstruct
-  public List<BlogsDTO> getBlogsDatas() throws IOException {
-      List<BlogsDTO> blogsList = new ArrayList<>();
-    try {
-      Document document = Jsoup.connect(Blogs_URL).get();
 
-      //블로그 리스트 덩어리 한개
-      Elements contents = document.select("div.area-common div.article-content");
-      //int Blog_size = Math.min(contents.size(), 4); // contents의 크기와 4 중 작은 값 선택
-      Elements content_element_substring = document.select("p.summary"); // 크롤링한 텍스트 가져오기
-
-
-      //콘텐츠의 크기만큼 가져오기
-      for (int i = 0; i <contents.size(); i++) {
-        Element content = contents.get(i); // i번째 요소 가져오기
-        String style = content.select("a.link-article[data-tiara-image]").attr("abs:data-tiara-image");
-
-        Element each_content = content_element_substring.get(i);
-        // 크롤링한 콘텐츠 텍스트 가져오기
-        String content_element = each_content.text();
-
-        // 각각의 콘텐츠 길이 확인 및 자르기
-        String subStringElement = content_element.length() > 255
-            ? content_element.substring(0, 255)
-            : content_element; // 길이 확인 후 자르기
-
-        //System.out.println("스타일 값을 가져오는가? : " + style);
-        BlogsDTO blogs = BlogsDTO.builder()
-            .image(style) // style 속성 가져오기) // 이미지 URL
-            .url(content.select("a").attr("abs:href"))
-            .title(content.select("strong.title").text())
-            .content(subStringElement)
-            .date(content.select("span.date").text())
-            .build();
-
-        blogsList.add(blogs);
-        Blogs blogsEntity = blogs.createItem();
-        blogsRepository.save(blogsEntity);
-      }
-      //System.out.println("for 문 밖에서 값을 가져오는가? : "+ contents.select("p.thumbnail").attr("style"));
-      // 데이터베이스에 저장.
-
-    } catch (IOException e) {
-      // 예외 처리 로직.
-      logger.error("Error while crawling blogs: {}", e.getMessage());
-      // 예외가 발생했을 경우 빈 리스트를 반환할 수 있음.
-      return Collections.emptyList();
-    }
-      return blogsList;
-  }
-
-
-  @Transactional(readOnly = true)
+  //@Transactional(readOnly = true)
   public Page<Blogs> getListItemPage(Pageable pageable) {
     return blogsRepository.findAll(pageable); //모든 아이템을 가져온다.
-//    Page<BlogsDTO> blogsPage = blogsRepository.findAll(pageable); //페이지 제대로 가져오는지 확인
-//    System.out.println(String.format("Total pages: %d, Total elements: %d", blogsPage.getTotalPages(), blogsPage.getTotalElements()));
-//    return blogsPage;
   }
 
   public void saveCrawledBlogs(List<Blogs> blogs) {

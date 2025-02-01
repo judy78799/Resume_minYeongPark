@@ -44,7 +44,7 @@ public class MainController {
   private static final Logger logger = LoggerFactory.getLogger(MainController.class);  //클래스 생성자
 
   @GetMapping("/")
-  public String main(Model model, @PageableDefault(page = 0, size = 4, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) throws Exception{
+  public String main(Model model, @PageableDefault(page = 0, size = 4, sort = "date", direction = Sort.Direction.ASC) Pageable pageable) throws Exception{
 
     //날짜와 시간을 표기해주기 위해 LocalDateTime 사용함.
     LocalDateTime now = LocalDateTime.now();
@@ -55,6 +55,7 @@ public class MainController {
     //블로그 크롤링 데이터
     Page<Blogs> list;
     list = blogsService.getListItemPage(pageable); // 메인페이지 리스트 부분
+
     model.addAttribute("list", list);
 
     int nowPage = list.getPageable().getPageNumber() + 1; // 현재 페이지
@@ -68,22 +69,6 @@ public class MainController {
     return "main";  // main.html로 이동
   }
 
-  @RestController
-  @RequestMapping("/api/blogs")
-  public class BlogApiController {
-
-    @Autowired
-    private BlogsService blogsService;
-
-    @GetMapping
-    public ResponseEntity<Page<Blogs>> getBlogs(
-        @PageableDefault(page = 1, size = 4, sort = "date", direction = Sort.Direction.DESC) Pageable pageable) {
-
-      Page<Blogs> blogs = blogsService.getListItemPage(pageable);
-
-      return ResponseEntity.ok(blogs);
-    }
-  }
 
   //POST 처리 로직
   @PostMapping("/uploadImageUrl")
@@ -154,21 +139,21 @@ public class MainController {
     }
   }
 
-  @PostMapping("/crawl")
-  public ResponseEntity<String> crawlBlogs() {
-    try {
-      // 크롤링 및 저장
-      List<BlogsDTO> blogs = blogsService.getBlogsDatas();
-      //blogsService.saveCrawledBlogs(blogs);
-      return ResponseEntity.ok("블로그 크롤링 및 저장 성공.");
-    } catch (IOException e) {
-      logger.error("블로그 크롤링 중 에러 발생: {}", e.getMessage());
-      return ResponseEntity.status(500).body("블로그 크롤링 실패: " + e.getMessage());
-    } catch (Exception e) {
-      logger.error("알 수 없는 에러 발생: {}", e.getMessage());
-      return ResponseEntity.status(500).body("알 수 없는 에러 발생: " + e.getMessage());
-    }
-  }
+//  @PostMapping("/crawl")
+//  public ResponseEntity<String> crawlBlogs() {
+//    try {
+//      // 크롤링 및 저장
+//      List<BlogsDTO> blogs = blogsService.getBlogsDatas();
+//      //blogsService.saveCrawledBlogs(blogs);
+//      return ResponseEntity.ok("블로그 크롤링 및 저장 성공.");
+//    } catch (IOException e) {
+//      logger.error("블로그 크롤링 중 에러 발생: {}", e.getMessage());
+//      return ResponseEntity.status(500).body("블로그 크롤링 실패: " + e.getMessage());
+//    } catch (Exception e) {
+//      logger.error("알 수 없는 에러 발생: {}", e.getMessage());
+//      return ResponseEntity.status(500).body("알 수 없는 에러 발생: " + e.getMessage());
+//    }
+//  }
 
 }
 
