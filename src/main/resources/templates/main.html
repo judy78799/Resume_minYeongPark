@@ -237,67 +237,14 @@
     <!--기술 블로그 크롤링 영역 -->
     <section class="blogs_box">
         <h2 class="contents_title">기술 블로그</h2>
-        <!--
-        <div class="blogs_wrap">
-            <div th:each="blogsLists : ${blogsList}" class="blog_card">
-                <a th:href="${blogsLists.url}">
-                    <img th:src="${blogsLists.image}" class="blog_img">
-                    <p th:text="${blogsLists.title}" class="blog_title"></p>
-                    <p th:text="${blogsLists.content}" class="blog_content"></p>
-                    <p th:text="${blogsLists.date}"></p>
-                </a>
-            </div>
-        </div>
-        -->
-        <div class="blogs_wrap">
-        <th:block th:each="lists, status: ${list.getContent()}" class="blogs_wrap">
 
-            <div class="blog_card">
-                <a th:href="${lists.url}">
-                    <img th:src="${lists.image}" class="blog_img">
-                    <p th:text="${lists.title}" class="blog_title"></p>
-                    <p th:text="${lists.content}" class="blog_content"></p>
-                    <p th:text="${lists.date}"></p>
-                </a>
-            </div>
-        </th:block>
-        </div>
-
-        <div class="pageNation-wrap">
-            <a th:if="${nowPage > 1}" class="btn next_prev_btn"
-               th:href="@{/(page=${nowPage - 1})}">
-                <img
-                        th:src="@{/img/back.png}"
-                        alt=""
-                        style="cursor: pointer; width: 1.5vw; height: 1.5vw;"
-                >
-            </a>
-
-            <th:block th:each="page: ${#numbers.sequence(startPage, endPage)}">
-                <a th:if="${page != nowPage}" th:href="@{/(page=${page - 1})}" th:text="${page}" class="btn"></a>
-                <strong th:if="${page == nowPage}" th:text="${page}" style="color: red" class="btn"></strong>
-            </th:block>
-
-            <a th:if="${nowPage < endPage}" class="btn next_prev_btn"
-               th:href="@{/(page=${nowPage})}">
-                <img
-                        th:src="@{/img/next2.png}"
-                        alt=""
-                        style="cursor: pointer; width: 1.5vw; height: 1.5vw;"
-                >
-            </a>
-
+            <!--셀레니움 크롤링 -> DB에 저장 -> Ajax 동적으로 GET 방시으로 읽어와서 서버 데이터 넣음 -->
             <div id="blog-container"></div>
             <div id="pagination">
                 <button id="prev-button" disabled>이전</button>
                 <span id="page-info">페이지 1</span>
                 <button id="next-button">다음</button>
             </div>
-
-
-
-        </div>
-
 
     </section>
 

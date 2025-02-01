@@ -278,4 +278,25 @@ public class BlogsService {
   public void saveCrawledBlogs(List<Blogs> blogs) {
     blogsRepository.saveAll(blogs);
   }
+
+  // 초기 데이터 저장 메서드
+  public void createInitialBlogs() throws InterruptedException {
+    List<Blogs> blogsList = new ArrayList<>();
+    List<BlogsDTO> blogsDTOList = getDataList(); // 크롤링하여 DTO 리스트 가져오기
+
+    for (BlogsDTO blogsDTO : blogsDTOList) {
+      Blogs blog = new Blogs();
+      blog.setImage(blogsDTO.getImage());
+      blog.setUrl(blogsDTO.getUrl());
+      blog.setTitle(blogsDTO.getTitle());
+      blog.setContent(blogsDTO.getContent());
+      blog.setDate(blogsDTO.getDate());
+      // 기타 필드 설정
+      blogsList.add(blog);
+    }
+
+    // 한 번에 저장
+    blogsRepository.saveAll(blogsList); // saveAll 메서드를 사용하여 리스트를 한 번에 저장
+  }
+
 }
