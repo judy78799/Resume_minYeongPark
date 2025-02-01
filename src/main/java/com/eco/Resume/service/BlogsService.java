@@ -23,9 +23,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -140,20 +138,54 @@ public class BlogsService {
         blogsDTOList.add(blogs);  //blogsDTOList에 추가
         //DTO blogs를 엔티티 Blogs로 매핑
         Blogs blogsEntity = blogs.createItem();
-        try {
-          blogsRepository.save(blogsEntity);  //데이터 베이스에 저장
-        } catch (Exception e) {
-          System.err.println("데이터베이스 저장 실패: " + e.getMessage());
-        }
+//        try {
+//          blogsRepository.save(blogsEntity);  //데이터 베이스에 저장
+//        } catch (Exception e) {
+//          System.err.println("데이터베이스 저장 실패: " + e.getMessage());
+//        }
 
       }
-
-      pageNumber++; //페이지 번호 증가
+      //페이지 번호 증가 tistory는 1페이지 당 10개씩 볼 수 있도록 설정해놓았기 때문에 페이지++ 해서 읽어와야 함.
+      pageNumber++;
     }
 
     driver.quit();
     return blogsDTOList; //blogsDTOList 반환
   }
+
+
+  //데이터 저장 메서드
+  public void saveBlogs(List<BlogsDTO> blogsDTOList) {
+    List<Blogs> blogsList = new ArrayList<>();
+
+    for (BlogsDTO blogsDTO : blogsDTOList) {
+      Blogs blogEntity = blogsDTO.createItem(); // DTO를 엔티티로 변환
+      blogsList.add(blogEntity);
+    }
+
+    try {
+      blogsRepository.saveAll(blogsList); // 한 번에 저장
+    } catch (Exception e) {
+      System.err.println("데이터베이스 저장 실패: " + e.getMessage());
+    }
+  }
+
+  //초기 데이터를 로드
+  @PostConstruct
+  @Transactional
+  public void init() throws InterruptedException {
+    blogsRepository.deleteAll(); // 기존 데이터 삭제 같은 데이터를 누적시키지 않기 위함.
+    System.out.println("삭제 후 데이터 개수: " + blogsRepository.count());
+    // ID값을 리셋 합니다.
+    blogsRepository.resetIdSequence();
+
+    List<BlogsDTO> blogsDTOList = getDataList(); // 크롤링한 데이터 가져오기
+    saveBlogs(blogsDTOList); // 데이터베이스에 저장
+  }
+
+
+
+
 //  @PostConstruct
 //  public  List<BlogsDTO> getDataList() throws InterruptedException {
 //
@@ -279,24 +311,24 @@ public class BlogsService {
     blogsRepository.saveAll(blogs);
   }
 
-  // 초기 데이터 저장 메서드
-  public void createInitialBlogs() throws InterruptedException {
-    List<Blogs> blogsList = new ArrayList<>();
-    List<BlogsDTO> blogsDTOList = getDataList(); // 크롤링하여 DTO 리스트 가져오기
-
-    for (BlogsDTO blogsDTO : blogsDTOList) {
-      Blogs blog = new Blogs();
-      blog.setImage(blogsDTO.getImage());
-      blog.setUrl(blogsDTO.getUrl());
-      blog.setTitle(blogsDTO.getTitle());
-      blog.setContent(blogsDTO.getContent());
-      blog.setDate(blogsDTO.getDate());
-      // 기타 필드 설정
-      blogsList.add(blog);
-    }
-
-    // 한 번에 저장
-    blogsRepository.saveAll(blogsList); // saveAll 메서드를 사용하여 리스트를 한 번에 저장
-  }
+//  // 초기 데이터 저장 메서드
+//  public void createInitialBlogs() throws InterruptedException {
+//    List<Blogs> blogsList = new ArrayList<>();
+//    List<BlogsDTO> blogsDTOList = getDataList(); // 크롤링하여 DTO 리스트 가져오기
+//
+//    for (BlogsDTO blogsDTO : blogsDTOList) {
+//      Blogs blog = new Blogs();
+//      blog.setImage(blogsDTO.getImage());
+//      blog.setUrl(blogsDTO.getUrl());
+//      blog.setTitle(blogsDTO.getTitle());
+//      blog.setContent(blogsDTO.getContent());
+//      blog.setDate(blogsDTO.getDate());
+//      // 기타 필드 설정
+//      blogsList.add(blog);
+//    }
+//
+//    // 한 번에 저장
+//    blogsRepository.saveAll(blogsList); // saveAll 메서드를 사용하여 리스트를 한 번에 저장
+//  }
 
 }

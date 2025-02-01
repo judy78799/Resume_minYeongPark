@@ -22,7 +22,7 @@ function loadBlogs(page) {
             $('#page-info').text(`페이지 ${data.number + 1}`);
             $('#prev-button').prop('disabled', data.first);
             $('#next-button').prop('disabled', data.last);
-            updatePagination(data.totalPages, data.number);
+                (data.totalPages, data.number);
         },
         error: function() {
             alert('블로그를 불러오는 데 실패했습니다.');

@@ -23,6 +23,6 @@ public class DataInitializer {
 
   private void loadInitialData() throws InterruptedException {
     // 초기 데이터 로드 로직
-    blogsService.createInitialBlogs(); // 초기 블로그 생성 메서드 호출
+    //blogsService.getDataList(); // 초기 블로그 생성 메서드 호출
   }
 }
