@@ -16,7 +16,7 @@ public class CrawlingServiceTest {
   private BlogsService blogService;
   @Test
   public void t1() throws Exception {
-    List<BlogsDTO> list = blogService.getDataList();
+    List<BlogsDTO> list = blogService.getBlogsDatas();
 
     for(BlogsDTO data:list){
       System.out.println("블로그 url:" + data.getUrl());

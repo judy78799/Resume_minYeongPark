@@ -240,20 +240,21 @@
 
             <!--셀레니움 크롤링 -> DB에 저장 -> Ajax 동적으로 GET 방시으로 읽어와서 서버 데이터 넣음 -->
             <div id="blog-container"></div>
-            <div id="pagination">
-                <button id="prev-button" disabled>이전</button>
-                <span id="page-info">페이지 1</span>
-                <button id="next-button">다음</button>
-            </div>
+        <div class="pagination_wrap">
+            <button id="prev-button" disabled>이전</button>
+                <div class="pagination" id="page-info"></div>
+            <button id="next-button">다음</button>
+        </div>
 
     </section>
 
-    <h4>전체 URL을 입력하면 결과값이 도출되어 나옵니다.</h4>
-    <input type="text" id="nameInput" placeholder="전체 URL을 입력해주세요. (따옴표 상관 없이)" />
-    <button id="fetchImageButton">가져오기</button>
-    <div id="imageContainer"></div>     <!-- 이미지 표시할 영역 -->
-    <div id="textContainer"></div>      <!-- 텍스트 표시할 영역 -->
-
+    <section id="base64Results">
+        <h4>전체 URL을 입력하면 결과값이 도출되어 나옵니다.</h4>
+        <input type="text" id="nameInput" placeholder="전체 URL을 입력해주세요. (따옴표 상관 없이)" />
+        <button id="fetchImageButton">가져오기</button>
+        <div id="imageContainer"></div>     <!-- 이미지 표시할 영역 -->
+        <div id="textContainer"></div>      <!-- 텍스트 표시할 영역 -->
+    </section>
 
     <button id="topBtn">Top</button>
 </div>
