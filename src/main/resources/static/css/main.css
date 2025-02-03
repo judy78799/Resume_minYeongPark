@@ -66,7 +66,7 @@
 }
 #information{
     width:100%;
-    height:18vw;
+    height:16vw;
     /*background-color:red;*/
 }
 .subInfo{
@@ -119,7 +119,7 @@
     padding: 1vw;
     border-radius:0.5vw;
     line-height:180%;
-    box-shadow: 0.5vw 0.1vw 0.5vw #9D9D9D;
+    box-shadow: 0vw 0.5vw 0.7vw #9D9D9D;
     /*background-color:white;*/
 }
 .project_img{
@@ -129,12 +129,13 @@
     height:5vw;
     margin: 0 auto;
     text-align:center;
+     padding: 0.5vw;
 }
 .project_img_big{
    display:flex;
     justify-content:center;
     width:fit-content;
-    height:3vw;
+    height:2.5vw;
     margin: 0 auto;
     text-align:center;
     padding: 1.5vw;
@@ -146,6 +147,9 @@
     color:black;
     line-height:150%;
     margin-top: 1vw;
+}
+hr{
+    border:solid 0.05vw #ccc;
 }
 .project_title{
     font-size:1.2vw;
@@ -201,11 +205,19 @@
 .blogs_box{
     width:100%;
     height:23vw;
+    box-shadow:0.1vw 0.1vw 0.8vw #ccc;
 }
 .blogs_wrap{
-     display:flex;
-     flex-wrap:wrap;
-     justify-content:space-between;
+    width:100%;
+    height:18VW;
+
+}
+#blog-container{
+    display:flex;
+    flex-wrap: wrap;
+    width:100%;
+    height:15vw;
+    margin-bottom:1vw;
 }
 .blog_card{
     display:block;
@@ -244,7 +256,6 @@
     color:black;
      line-height:150%;
      margin-top: 1vw;
-
 }
 .blog_content{
     width:100%;
@@ -257,27 +268,23 @@
     text-overflow: ellipsis;
     color:black;
 }
-#blog-container{
-    display:flex;
-    flex-wrap: wrap;
-    width:100%;
-    height:15vw;
-    margin-bottom:2vw;
-    border: 0.5vw solid #A0A0A0;
-}
 .pageBtn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:1vw;
+    height:1vw;
     font-size:0.8vw;
-    padding:0.5vw;
     border-radius:0.1vw;
-    background-color:black;
     color:white;
     margin:0.1vw;
+    padding:1vw;
 }
 .pagination_wrap{
     display:flex;
     align-items:center;
     width:10vw;
-    height:3vw;
+    height:2vw;
     margin:0 auto;
 }
 #prev-button > img, #next-button > img{
@@ -304,7 +311,7 @@
 }
 #base64Results{
     width:100%;
-    height:10vw;
+    height:13vw;
     margin: 0 auto;
 }
 #nameInput{
@@ -333,6 +340,7 @@
     display:flex;
     width:100%;
     height:8vw;
+    margin-top:0.5vw;
 }
 #topBtn{
     display: none; /* 페이지의 상단으로 올라가기 전까지 버튼 숨김 */

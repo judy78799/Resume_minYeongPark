@@ -183,11 +183,11 @@
                         <hr>
                         <p class="project_title">아트인 홈 Art-In-Home</p>
                         <ul class="tag_list">
-                            <li class="tags spring_springboot_color">springBoot</li>
                             <li class="tags java_color">Java</li>
+                            <li class="tags spring_springboot_color">springBoot</li>
                             <li class="tags js_color">Javascript</li>
                             <li class="tags db_color">MariaDB</li>
-                            <li class="tags js_color">Apache Tomcat</li>
+                            <li class="tags apache_color">Apache Tomcat</li>
                         </ul>
                         <p class="project_description">2030세대를 위한 셀프 인테리어 서비스 웹사이트 구현.</p>
                         <p class="project_date">2024.09~2024.10</p>
@@ -222,7 +222,7 @@
                             <li class="tags js_color">Javascript</li>
                             <li class="tags db_color">MySQL</li>
                             <li class="tags">Restful API</li>
-                            <li class="tags js_color">Apache Tomcat</li>
+                            <li class="tags apache_color">Apache Tomcat</li>
                         </ul>
                         <p class="project_description">창업교육과정 조회서비스 공공 데이터 API CRUD 기능 구현.</p>
                         <p class="project_date">2024.05~2024.06</p>
@@ -257,13 +257,14 @@
     <!--기술 블로그 크롤링 영역 -->
     <section class="blogs_box">
         <h2 class="contents_title">기술 블로그</h2>
-
-            <!--셀레니움 크롤링 -> DB에 저장 -> Ajax 동적으로 GET 방시으로 읽어와서 서버 데이터 넣음 -->
-            <div id="blog-container"></div>
-            <div class="pagination_wrap">
-<!--                <button id="prev-button" disabled><img th:src="@{/img/back.png}"></button>-->
-                <div class="pagination" id="page-info"></div>
-<!--                <button id="next-button"><img th:src="@{/img/next.png}"></button>-->
+            <div class="blogs_wrap">
+                <!--셀레니움 크롤링 -> DB에 저장 -> Ajax 동적으로 GET 방시으로 읽어와서 서버 데이터 넣음 -->
+                <div id="blog-container"></div>
+                <div class="pagination_wrap">
+    <!--                <button id="prev-button" disabled><img th:src="@{/img/back.png}"></button>-->
+                    <div class="pagination" id="page-info"></div>
+    <!--                <button id="next-button"><img th:src="@{/img/next.png}"></button>-->
+                </div>
             </div>
     </section>
 

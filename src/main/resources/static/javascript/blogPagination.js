@@ -44,7 +44,7 @@ function updatePagination(totalPages, currentPage) {
 
     // 페이지 번호 버튼 생성
     for (let i = 0; i < totalPages; i++) {
-        const pageButton = $('<button class="pageBtn"></button>').text(i + 1);
+        const pageButton = $('<button class="pageBtn btn_common_style"></button>').text(i + 1);
         pageButton.prop('disabled', (i === currentPage));
         pageButton.click(() => {
             currentPage = i; // 현재 페이지 업데이트
