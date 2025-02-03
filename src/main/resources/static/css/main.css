@@ -347,17 +347,13 @@ hr{
         bottom: 5vw;
         right: 5vw;
         z-index: 5;
-        font-size: 18px;
+        font-size: 1.2vw;
         border: none;
         outline: none;
         color: white;
         cursor: pointer; /* 해당 태그 위에 위치하는 마우스의 모양이 변한다(손가락 포인터 모양으로).wait-모레시계 모양으로 바뀜 */
         padding: 1vw;
         border-radius: 1vw;
-        background-color:#3d3d3d;
-}
-#topBtn:hover {  /*호버하면 색상이 바뀌는 기능*/
-  background-color: #555;
 }
 
 
