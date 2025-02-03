@@ -25,7 +25,29 @@ body {
     font-size: 1vw;
     color:black;
 }
-.login_out{
-    display:flex;
-    justify-content:space-between;
+.login_out {
+    width: 15vw;
+    list-style: none;
+    display: flex;
+    margin-left: 30px;
+    justify-content: space-evenly
+}
+
+.login_out li {
+    font-size: 18px;
+    padding: 8px;
+}
+
+.login_out li a {
+    color: #2c2c2c;
+}
+
+.login_out li:hover {
+    transition: 0.4s;
+    background-color: #806D61;
+    border-radius: 5px;
+}
+
+.login_out li:hover a {
+    color: #FFFFFF;
 }

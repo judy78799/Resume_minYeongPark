@@ -3,11 +3,15 @@ package com.eco.Resume.controller;
 import com.eco.Resume.dto.BlogsDTO;
 import com.eco.Resume.dto.ImageUrlRequest;
 import com.eco.Resume.entity.Blogs;
+//import com.eco.Resume.entity.Member;
+//import com.eco.Resume.service.BlogScrapService;
 import com.eco.Resume.service.BlogsService;
 import com.eco.Resume.service.ExternalService;
+//import com.eco.Resume.service.MemberService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory; // SLF4J Logger 임포트
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +19,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,15 +31,20 @@ import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import java.util.Collections;
 import java.util.List;
-
+import java.util.Objects;
 
 
 @Controller
+@RequiredArgsConstructor
 public class MainController {
+
+
 
   @Autowired
   private ExternalService externalService;
@@ -41,10 +52,13 @@ public class MainController {
   @Autowired
   private BlogsService blogsService;
 
+//  private final MemberService memberService;
+//  private final BlogScrapService blogScrapService;
+
   private static final Logger logger = LoggerFactory.getLogger(MainController.class);  //클래스 생성자
 
   @GetMapping("/")
-  public String main(Model model, @PageableDefault(page = 0, size = 4, sort = "date", direction = Sort.Direction.ASC) Pageable pageable) throws Exception{
+  public String main(Model model, Principal principal, @PageableDefault(page = 0, size = 4, sort = "date", direction = Sort.Direction.ASC) Pageable pageable) throws Exception{
 
     //날짜와 시간을 표기해주기 위해 LocalDateTime 사용함.
     LocalDateTime now = LocalDateTime.now();
@@ -138,6 +152,7 @@ public class MainController {
       return "Error fetching image: " + e.getMessage(); // 에러 메시지 반환
     }
   }
+
 
 //  @PostMapping("/crawl")
 //  public ResponseEntity<String> crawlBlogs() {

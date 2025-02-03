@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec=xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<link rel="stylesheet" th:href="@{/css/common.css}">
-<link rel="stylesheet" th:href="@{/css/header.css}">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <div th:fragment="header" id="header">
     <div class="header_contents">
@@ -10,21 +9,6 @@
             <img th:src="@{/img/ecoLogo.png}" alt="ecoLogo" class="ecoLogo">
             <p th:text="${now}"></p>
         </div>
-
-        <ul class="login_out">
-            <!-- 로그인 X -->
-            <!-- sec:authorize="isAnonymous()" -->
-            <li sec:authorize="isAnonymous()"><a href="/members/login">로그인</a></li>
-            <li sec:authorize="isAnonymous()"><a href="/members/new">회원가입</a></li>
-
-            <!-- 로그인 O -->
-            <!-- sec:authorize="isAuthenticated()" -->
-            <li sec:authorize="isAuthenticated()"><a href="/mypage">마이페이지</a></li>
-            <li sec:authorize="isAuthenticated()"><a href="/members/logout">로그아웃</a></li>
-        </ul>
     </div>
-<!--        <a href="/" class="my_logo">-->
-<!--            박민영의 이력서.-->
-<!--        </a>-->
 </div>
 </html>

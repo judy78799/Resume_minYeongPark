@@ -3,6 +3,8 @@ plugins {
 	id 'org.springframework.boot' version '3.4.1'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
+// Hibernate 버전 설정 DB already exists 에러 방지
+ext["hibernate.version"] = "5.4.20.Final"
 
 group = 'com.eco'
 version = '0.0.1-SNAPSHOT'
@@ -13,52 +15,37 @@ java {
 	}
 }
 
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-}
-
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'	//웹 서버 애플리케이션으로서 동작
-	implementation 'com.fasterxml.jackson.core:jackson-databind'// Jackson 명시적으로 추가
-	implementation 'org.jsoup:jsoup:1.15.3' //크롤링 위한 라이브러리 설치 
+	implementation 'org.hibernate.orm:hibernate-core:6.2.1.Final' // Hibernate Core
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // Spring Data JPA
+	//implementation 'org.springframework.boot:spring-boot-starter-security' // Spring Security Starter
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // Thymeleaf
+	implementation 'org.springframework.boot:spring-boot-starter-web' // 웹 서버 애플리케이션으로서 동작
+	implementation 'com.fasterxml.jackson.core:jackson-databind' // Jackson 명시적으로 추가
+	implementation 'org.jsoup:jsoup:1.15.3' // 크롤링 위한 라이브러리 설치
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'mysql:mysql-connector-java'
+	implementation 'mysql:mysql-connector-java:8.0.33' // MySQL Connector
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	implementation 'mysql:mysql-connector-java:8.0.33' // 최신 버전으로 변경할 수 있습니다
-	// JUnit 5
-	testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
-	// Mockito
-	testImplementation 'org.mockito:mockito-core:3.11.2'
-	// Selenium
-	implementation 'org.seleniumhq.selenium:selenium-java:4.25.0'
-	implementation 'org.modelmapper:modelmapper:3.1.0'
-	implementation 'jakarta.validation:jakarta.validation-api:3.0.0'
-	implementation 'org.hibernate.validator:hibernate-validator:6.2.0.Final'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0' // JUnit 5
+	testImplementation 'org.mockito:mockito-core:3.11.2' // Mockito
+	implementation 'org.seleniumhq.selenium:selenium-java:4.25.0' // Selenium
+	implementation 'org.modelmapper:modelmapper:3.1.0' // ModelMapper
+	implementation 'jakarta.validation:jakarta.validation-api:3.0.0' // Jakarta Validation API
+	implementation 'org.hibernate.validator:hibernate-validator:6.2.0.Final' // Hibernate Validator
 	implementation 'org.glassfish:javax.el:3.0.0' // EL 표현식 지원
-	implementation 'jakarta.persistence:jakarta.persistence-api:3.0.0' // Jakarta Persistence API
-	implementation 'org.hibernate.orm:hibernate-core:5.6.0.Final' // Hibernate Core
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // Spring Data JPA
-	implementation 'org.springframework.security:spring-security-core:5.4.0' // Spring Security
-	implementation 'org.springframework.security:spring-security-crypto:5.4.0' // Spring Security Crypto
-	implementation 'jakarta.persistence:jakarta.persistence-api:3.0.0' // Jakarta Persistence API
-	implementation 'org.hibernate.orm:hibernate-core:5.6.0.Final' // Hibernate Core
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // Spring Data JPA
-	implementation 'org.springframework.boot:spring-boot-starter-security' // Spring Security
-	implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0' // Jakarta Servlet API
-	implementation 'org.springframework.boot:spring-boot-starter-security' // Spring Security
+	implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0' // Jakarta Persistence API
+	implementation 'org.antlr:antlr4-runtime:4.13.0' // ANTLR 런타임 버전
+	implementation 'org.springframework.security:spring-security-taglibs' // Spring Security TagLibs
 }
+
 
 tasks.named('test') {
 	useJUnitPlatform()

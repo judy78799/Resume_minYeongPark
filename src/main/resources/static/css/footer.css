@@ -5,8 +5,13 @@ body {
 }
 #footer{
     width:100%;
-    height:5vw;
+    height:2vw;
     padding:1vw;
-    color: red;
-    background-color: black;
+    color:#A0A0A0;
+}
+.footerText{
+    width:20vw;
+    height:3vw;
+    margin: 0 auto;
+    font-size:0.8vw;
 }
