@@ -1,13 +1,8 @@
 package com.eco.Resume.controller;
-
-import com.eco.Resume.dto.BlogsDTO;
 import com.eco.Resume.dto.ImageUrlRequest;
 import com.eco.Resume.entity.Blogs;
-//import com.eco.Resume.entity.Member;
-//import com.eco.Resume.service.BlogScrapService;
 import com.eco.Resume.service.BlogsService;
 import com.eco.Resume.service.ExternalService;
-//import com.eco.Resume.service.MemberService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -18,9 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,30 +22,20 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-
 import java.security.Principal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
 
 
 @Controller
 @RequiredArgsConstructor
 public class MainController {
 
-
-
   @Autowired
   private ExternalService externalService;
 
   @Autowired
   private BlogsService blogsService;
-
-//  private final MemberService memberService;
-//  private final BlogScrapService blogScrapService;
 
   private static final Logger logger = LoggerFactory.getLogger(MainController.class);  //클래스 생성자
 
@@ -85,6 +67,7 @@ public class MainController {
 
 
   //POST 처리 로직
+  @CrossOrigin(origins = "*") // 모든 출처에서 요청을 허용
   @PostMapping("/uploadImageUrl")
   @ResponseBody // JSON 형식으로 응답할 것을 명시함.
   public String uploadImageUrl(@RequestBody ImageUrlRequest request) {
