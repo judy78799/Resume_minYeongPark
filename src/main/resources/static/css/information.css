@@ -38,6 +38,7 @@
     height:3vw;
     cursor: pointer;
     margin: 0vw 1vw;
+    font-size:1vw;
 }
 #imgSet #ulSet li .dot {
     margin: 0 0.5vw;
