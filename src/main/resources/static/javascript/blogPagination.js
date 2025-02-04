@@ -1,5 +1,6 @@
 let currentPage = 0;
 const pageSize = 4; // 한 페이지에 표시할 블로그 수
+//총 페이지 수 = Math.ceil(전체 컨텐츠 개수 / 한 페이지에 보여주고자 하는 컨텐츠의 개수)
 totalPages = 3;
 function loadBlogs(page) {
     $('#loading').show(); // 로딩 애니메이션 표시

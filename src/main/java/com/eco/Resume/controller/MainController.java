@@ -48,20 +48,20 @@ public class MainController {
     System.out.println(formatNow);
     model.addAttribute("now", formatNow);
 
-    //블로그 크롤링 데이터
-    Page<Blogs> list;
-    list = blogsService.getListItemPage(pageable); // 메인페이지 리스트 부분
-
-    model.addAttribute("list", list);
-
-    int nowPage = list.getPageable().getPageNumber() + 1; // 현재 페이지
-    int startPage = Math.max(nowPage - 4, 1);
-    int endPage = Math.min(nowPage + 5, list.getTotalPages());
-
-    model.addAttribute("nowPage", nowPage);
-    model.addAttribute("startPage", startPage);
-    model.addAttribute("endPage", endPage);
-    model.addAttribute("maxPage", 5); // 한 화면에 5개의 페이지네이션
+//    //블로그 크롤링 데이터
+//    Page<Blogs> list;
+//    list = blogsService.getListItemPage(pageable); // 메인페이지 리스트 부분
+//
+//    model.addAttribute("list", list);
+//
+//    int nowPage = list.getPageable().getPageNumber() + 1; // 현재 페이지
+//    int startPage = Math.max(nowPage - 4, 1);
+//    int endPage = Math.min(nowPage + 5, list.getTotalPages());
+//
+//    model.addAttribute("nowPage", nowPage);
+//    model.addAttribute("startPage", startPage);
+//    model.addAttribute("endPage", endPage);
+//    model.addAttribute("maxPage", 5); // 한 화면에 5개의 페이지네이션
     return "main";  // main.html로 이동
   }
 
