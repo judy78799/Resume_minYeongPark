@@ -10,11 +10,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,122 +29,11 @@ import java.util.List;
 @Service
 public class BlogsService {
 
-  public WebDriver driver;
-
   @Autowired
   private final BlogsRepository blogsRepository;
 
   private static final Logger logger = LoggerFactory.getLogger(MainController.class);  //클래스 생성자
   private static final String Blogs_URL = "https://judy0465.tistory.com/";
-
-
-  // 생성자를 통한 의존성 주입
-
-//  public BlogsService(BlogsRepository blogsRepository) {
-//    this.blogsRepository = blogsRepository;
-//  }
-  //서비스가 초기화될 때 자동으로 호출되도록 할 수 있습니다.
-  //이렇게 하면 서비스가 생성될 때마다 크롤링 프로세스가 실행됩니다.
-//  @PostConstruct
-//  public void process() {
-//    //크롬 드라이버 위치를 추가해 줍니다
-//    System.setProperty("webdriver.chrome.driver", "D:\\chrome_driver\\chrome-win64");
-//
-//    //크롬 버전이 111인 경우 사용합니다. 이 설정이 없을 경우 403 에러가 나오는 이슈가 있습니다.
-//    //버전이 111 이전 버전인 경우에는 무관합니다.
-////    ChromeOptions options = new ChromeOptions();
-////    BlogsService(BlogsRepository)
-//
-//    //위의 옵션이 필요하지 않은 경우 driver = new ChromeDriver() 이렇게 쓰시면 됩니다.
-//    //driver = new ChromeDriver(options);
-//    driver = new ChromeDriver();
-//
-//    try{
-//      //크롤링 실행
-//      getDataList();
-//    } catch (InterruptedException e) {
-//      e.printStackTrace();
-//    }
-//
-//    driver.close(); //탭 닫기
-//    driver.quit();	//브라우저 닫기
-//
-//  }
-
-//  //데이터를 가져옵니다 셀레니움 버전
-//  @PostConstruct
-//  @Transactional
-//  public List<BlogsDTO> getDataList() throws InterruptedException {
-//
-//    System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
-//
-//    // 크롬 옵션 설정
-//    ChromeOptions options = new ChromeOptions();
-//    options.addArguments("--disable-popup-blocking");       //팝업안띄움
-//    options.addArguments("headless");                       //브라우저 안띄움
-//    options.addArguments("--disable-gpu");			//gpu 비활성화
-//    options.addArguments("--blink-settings=imagesEnabled=false"); //이미지 다운 안받음
-//    WebDriver driver = new ChromeDriver(options);
-//
-//
-//    // 페이지 번호 설정
-//    int pageNumber = 1;
-//
-//    // 반환할 BlogsDTO 리스트 생성
-//    List<BlogsDTO> blogsDTOList = new ArrayList<>();
-//
-//    while (true) {
-//      // URL에 페이지 번호 추가
-//      driver.get(Blogs_URL + "?page=" + pageNumber);
-//
-//      // area-common 클래스의 모든 자식 요소 선택
-//      List<WebElement> articles = driver.findElements(By.cssSelector("div.area-common div.article-content"));
-//
-//      // 가져온 글이 없으면 종료
-//      if (articles.isEmpty()) {
-//        break;
-//      }
-//
-//      // 콘텐츠의 크기만큼 가져오기
-//      //for (int i = 0; i < all_elements.size(); i++) {
-//      for (WebElement article : articles) {
-//        //WebElement content = elements.get(i); // i번째 요소 가져오기
-//        String style = article.findElement(By.cssSelector("a.link-article[data-tiara-image]")).getAttribute("abs:data-tiara-image");
-//
-//        // 크롤링한 콘텐츠 텍스트 가져오기
-//        String contentElement = article.getText();
-//        // 각각의 콘텐츠 길이 확인 및 자르기
-//        String subStringElement = contentElement.length() > 255
-//            ? contentElement.substring(0, 255)
-//            : contentElement; // 길이 확인 후 자르기
-//
-//        //잘린 내용들 출력
-//
-//        System.out.println("image src :" + style);
-//        System.out.println("url : " + article.findElement(By.tagName("a")).getAttribute("href"));
-//        System.out.println("title : " + article.findElement(By.cssSelector("strong.title")).getText());
-//        System.out.println("잘린 content 내용들 subStringElement ? = " + subStringElement);
-//        System.out.println("date : " + article.findElement(By.cssSelector("span.date")).getText());
-//
-//        BlogsDTO blogs = BlogsDTO.builder()
-//            .image(style) // 이미지 URL
-//            .url(article.findElement(By.tagName("a")).getAttribute("href")) // 링크 URL
-//            .title(article.findElement(By.cssSelector("strong.title")).getText()) // 제목
-//            .content(subStringElement) // 내용
-//            .date(article.findElement(By.cssSelector("span.date")).getText()) // 날짜
-//            .build();
-//
-//        blogsDTOList.add(blogs);  //blogsDTOList에 추가
-//        //DTO blogs를 엔티티 Blogs로 매핑
-//        Blogs blogsEntity = blogs.createItem();
-//      }
-//      //페이지 번호 증가 tistory는 1페이지 당 10개씩 볼 수 있도록 설정해놓았기 때문에 페이지++ 해서 읽어와야 함.
-//      pageNumber++;
-//    }
-//    driver.quit();
-//    return blogsDTOList; //blogsDTOList 반환
-//  }
-
 
   //데이터 저장 메서드
   public void saveBlogs(List<BlogsDTO> blogsDTOList) {
@@ -254,7 +138,6 @@ public class BlogsService {
     return blogsList;
 }
 
-
   //@Transactional(readOnly = true)
   public Page<Blogs> getListItemPage(Pageable pageable) {
     return blogsRepository.findAll(pageable); //모든 아이템을 가져온다.
@@ -263,25 +146,4 @@ public class BlogsService {
   public void saveCrawledBlogs(List<Blogs> blogs) {
     blogsRepository.saveAll(blogs);
   }
-
-//  // 초기 데이터 저장 메서드
-//  public void createInitialBlogs() throws InterruptedException {
-//    List<Blogs> blogsList = new ArrayList<>();
-//    List<BlogsDTO> blogsDTOList = getDataList(); // 크롤링하여 DTO 리스트 가져오기
-//
-//    for (BlogsDTO blogsDTO : blogsDTOList) {
-//      Blogs blog = new Blogs();
-//      blog.setImage(blogsDTO.getImage());
-//      blog.setUrl(blogsDTO.getUrl());
-//      blog.setTitle(blogsDTO.getTitle());
-//      blog.setContent(blogsDTO.getContent());
-//      blog.setDate(blogsDTO.getDate());
-//      // 기타 필드 설정
-//      blogsList.add(blog);
-//    }
-//
-//    // 한 번에 저장
-//    blogsRepository.saveAll(blogsList); // saveAll 메서드를 사용하여 리스트를 한 번에 저장
-//  }
-
 }
