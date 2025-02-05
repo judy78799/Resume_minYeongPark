@@ -282,8 +282,16 @@ hr{
 .pagination_wrap{
     display:flex;
     align-items:center;
-    width:10vw;
+    width:15vw;
     height:2vw;
+    margin:0 auto;
+}
+.pagination{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    width:100%;
+    height:100%;
     margin:0 auto;
 }
 #prev-button > img, #next-button > img{
@@ -299,14 +307,6 @@ hr{
     cursor: pointer;
     width: 1.5vw;
     height: 1.5vw;
-}
-.pagination{
-    display:flex;
-    justify-content:center;
-    align-items: center;
-    width:6vw;
-    height:100%;
-    margin:0 auto;
 }
 #base64Results{
     width:100%;

@@ -87,17 +87,17 @@ public class BlogsService {
         if (contents.isEmpty()) {
           break;
         }
-        if (blogCount >= 12) {
-          break;
-        }
+          if (blogCount >= 12) {
+            break;
+          }
 
         System.out.println("JSOUP contents 전체 사이즈는?" + contents.size());
         //콘텐츠의 크기만큼 가져오기
         for (int i = 0; i < contents.size(); i++) {
           // 12개를 초과하면 종료
-          if (blogCount >= 12) {
-            break;
-          }
+//          if (blogCount >= 12) {
+//            break;
+//          }
 
           Element content = contents.get(i); // i번째 요소 가져오기
           //String style = content.select("a.link-article[data-tiara-image]").attr("abs:data-tiara-image").text();

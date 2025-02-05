@@ -1,13 +1,13 @@
 let currentPage = 0;
 const pageSize = 4; // 한 페이지에 표시할 블로그 수
-const itemsPerPage = 8;      // 한 페이지에 표시할 항목 수
+const itemsPerPage = 5;      // 한 페이지에 표시할 항목 수
 // 페이지네이션 계산
 //const totalPages = Math.ceil(results.length / itemsPerPage);     // 전체 페이지 수 계산
 const startIndex = (currentPage - 1) * itemsPerPage;          // 현재 페이지의 시작 인덱스
 const endIndex = startIndex + itemsPerPage;                   // 현재 페이지의 끝 인덱스
 //const paginatedResults = results.slice(startIndex, endIndex);
 //총 페이지 수 = Math.ceil(전체 컨텐츠 개수 / 한 페이지에 보여주고자 하는 컨텐츠의 개수)
-const totalPages = 2;
+//const totalPages = 2;
 function loadBlogs(page) {
     $('#loading').show(); // 로딩 애니메이션 표시
     $('#prev-button, #next-button').prop('disabled', true); // 버튼 비활성화
@@ -31,8 +31,8 @@ function loadBlogs(page) {
 
             //data.number: 현재 페이지 수
             // 페이지 정보 업데이트
-
-            console.log("totalPages ? : " + totalPages);
+            //totalPages = page.length;
+            //console.log("totalPages ? : " + totalPages);
             updatePagination(data.totalPages, data.number);
 //               document.getElementById("prev-button").onclick = () => {
 //                    if (currentPage > 1) {
@@ -127,6 +127,7 @@ function updatePagination(totalPages, currentPage) {
         if (currentPage > 0) { // 인덱스가 0부터 시작하므로
             currentPage--;
             loadBlogs(currentPage); // 결과를 다시 표시
+            console.log("현재 이전 버튼을 누른 페이지는? " + currentPage);
             updatePagination(totalPages, currentPage); // 페이지네이션 업데이트
         }
     };
@@ -135,6 +136,7 @@ function updatePagination(totalPages, currentPage) {
         if (currentPage < totalPages - 1) { // 마지막 페이지 체크
             currentPage++;
             loadBlogs(currentPage); // 결과를 다시 표시
+            console.log("현재 다음 버튼을 누른 페이지는? " + currentPage);
             updatePagination(totalPages, currentPage); // 페이지네이션 업데이트
         }
     };
