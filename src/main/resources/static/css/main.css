@@ -87,6 +87,9 @@
     border-radius:0.5vw;
     line-height:180%;
 }
+.info_box > .li_round{
+    list-style-type: disc;
+}
 .info_box_span{
     width:3vw;
     height:0.4vw;
@@ -204,7 +207,8 @@ hr{
 }
 .blogs_box{
     width:100%;
-    height:23vw;
+    height:20vw;
+    margin-top:1vw;
 }
 .blogs_wrap{
     width:100%;
