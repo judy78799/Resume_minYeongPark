@@ -1,3 +1,4 @@
+# Resume
 ## 박민영의 이력서입니다.
 
 ## 개발기간
@@ -31,7 +32,7 @@
     </tr>
 </table>
 
-## 🖊️ 디자인
+## 🖊️디자인
 <a style="display: flex;" href="https://www.figma.com/?gad_source=1&gclid=Cj0KCQjwsoe5BhDiARIsAOXVoUsJka6YCtrhkvqra87DUVNSvr2kxpOmVRkQsI5u3MVyym41FojenhcaAujSEALw_wcB">Figma </a> 
 
 <div style="display: flex;">
@@ -46,12 +47,12 @@
   <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=#white"/>
 
   <div style="display:flex;">  
-  <h2>library</h2>
+  <h2>Library</h2>
   <img src="https://img.shields.io/badge/mysql-003545?style=flat&logo=mysql&logoColor=#white"/>
   <img src="https://img.shields.io/badge/thymeleaf-005F0F?style=flat&logo=Thymeleaf&logoColor=#white"/>
   <img src="https://img.shields.io/badge/git-F05032?style=flat&logo=git&logoColor=#white"/>
 
-## 이력서 컨텐츠 내용
+## ✏️컨텐츠 내용
 - 자기소개
 - 나의장점
 - 교육 및 직무역량
@@ -64,7 +65,7 @@
 - Skills (기술설명 탭 + 한눈에 보기 탭)
 - 기술 블로그(JSOUP 크롤링 + Ajax) 
 
-## 주요 기능
+## ✏️주요 기능
 ### 블로그 JSOP 크롤링
 보다 빠른 크롤링 작업을 수행하기 위해 JSOUP 라이브러리를 사용하여 제 개인블로그 정적 데이터만을 불러오고자 구현하였습니다.
 ### 블로그 데이터
@@ -75,6 +76,8 @@ Ajax GET 요청을 통해 데이터베이스에 저장되어 있는 데이터들
 Ajax를 사용하여 데이터 GET 요청과 함께 한 화면 당 4개의 데이터를 5페이지게 걸쳐 보여지도록 구성하였습니다. 화면의 깜빡거림 없이 이동이 가능하며, 왼쪽 및 오른쪽 화살표로 화면 이동이 가능합니다.
 ### 블로그 데이터 크롤링 단위 테스트
 크롤링 데이터 단위 테스트를 통해 JSOUP과 Selenium 중 성능 이슈로 JSOUP을 선정하여 구현하였습니다. 
+### AWS 배포
+AWS의 EC2 인스턴스와 RDS를 사용하여 웹페이지를 배포하였습니다.(http://3.34.189.18:8080/ -> 현재는 비용이슈로 인스턴스 삭제하였습니다.)
 
 
 ## 파일 구조
