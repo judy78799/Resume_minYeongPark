@@ -46,10 +46,11 @@
   <img src="https://img.shields.io/badge/css3-1572B6?style=flat&logo=css3&logoColor=#white"/>
   <img src="https://img.shields.io/badge/javaScript-F7DF1E?style=flat&logo=javaScript&logoColor=#black"/>
   <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=#white"/>
+  <img src="https://img.shields.io/badge/mysql-003545?style=flat&logo=mysql&logoColor=#white"/>
 
   <div style="display:flex;">  
   <h2>Library</h2>
-  <img src="https://img.shields.io/badge/mysql-003545?style=flat&logo=mysql&logoColor=#white"/>
+  <img src="https://img.shields.io/badge/jsoup-003545?style=flat&logo=jsoup&logoColor=#white"/>
   <img src="https://img.shields.io/badge/thymeleaf-005F0F?style=flat&logo=Thymeleaf&logoColor=#white"/>
   <img src="https://img.shields.io/badge/git-F05032?style=flat&logo=git&logoColor=#white"/>
 
