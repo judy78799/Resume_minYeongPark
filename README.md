@@ -40,7 +40,7 @@
   <img src="https://img.shields.io/badge/gradle-02303A?style=flat&logo=gradle&logoColor=#white"/>
   <img src="https://img.shields.io/badge/Java-007396?style=flat&logo=OpenJDK&logoColor=white"/>
   <img src="https://img.shields.io/badge/Springboot-6DB33F?style=flat&logo=Springboot&logoColor=#white"/>
-  <img src="https://img.shields.io/badge/html5-E34F26style=flat&logo=html5&logoColor=#white"/>
+  <img src="https://img.shields.io/badge/Html5-E34F26style=flat&logo=Html5&logoColor=#white"/>
   <img src="https://img.shields.io/badge/css3-1572B6?style=flat&logo=css3&logoColor=#white"/>
   <img src="https://img.shields.io/badge/javaScript-F7DF1E?style=flat&logo=javaScript&logoColor=#black"/>
   <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=#white"/>
