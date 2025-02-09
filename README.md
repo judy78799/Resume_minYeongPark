@@ -51,7 +51,20 @@
   <img src="https://img.shields.io/badge/thymeleaf-005F0F?style=flat&logo=Thymeleaf&logoColor=#white"/>
   <img src="https://img.shields.io/badge/git-F05032?style=flat&logo=git&logoColor=#white"/>
 
-  ## 파일 구조
+## 주요 기능
+### 블로그 JSOP 크롤링
+보다 빠른 크롤링 작업을 수행하기 위해 JSOUP 라이브러리를 사용하여 제 개인블로그 정적 데이터만을 불러오고자 구현하였습니다.
+### 블로그 데이터
+이력서에서 데이터베이스를 사용하기 위해 SpringBoot에 엔티티를 하나 만들어 MySQL에 데이터를 넣어주었습니다.
+### 블로그 데이터 Ajax 처리
+Ajax GET 요청을 통해 데이터베이스에 저장되어 있는 데이터들을 가져와서 Javascript로 태그를 동적으로 생성하여 화면에 보여지도록 하였습니다.
+### 블로그 데이터 Ajax 페이지네이션
+Ajax를 사용하여 데이터 GET 요청과 함께 한 화면 당 4개의 데이터를 5페이지게 걸쳐 보여지도록 구성하였습니다. 화면의 깜빡거림 없이 이동이 가능하며, 왼쪽 및 오른쪽 화살표로 화면 이동이 가능합니다.
+### 블로그 데이터 크롤링 단위 테스트
+크롤링 데이터 단위 테스트를 통해 JSOUP과 Selenium 중 성능 이슈로 JSOUP을 선정하여 구현하였습니다. 
+
+
+## 파일 구조
 ```
 D:.
 │  .gitattributes
