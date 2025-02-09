@@ -50,7 +50,7 @@
 
   <div style="display:flex;">  
   <h2>Library</h2>
-  <img src="https://img.shields.io/badge/jsoup-003545?style=flat&logo=jsoup&logoColor=#white"/>
+  <img src="https://img.shields.io/badge/Jsoup-003545?style=flat&logo=Jsoup&logoColor=#white"/>
   <img src="https://img.shields.io/badge/thymeleaf-005F0F?style=flat&logo=Thymeleaf&logoColor=#white"/>
   <img src="https://img.shields.io/badge/git-F05032?style=flat&logo=git&logoColor=#white"/>
 
