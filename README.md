@@ -51,6 +51,19 @@
   <img src="https://img.shields.io/badge/thymeleaf-005F0F?style=flat&logo=Thymeleaf&logoColor=#white"/>
   <img src="https://img.shields.io/badge/git-F05032?style=flat&logo=git&logoColor=#white"/>
 
+## 이력서 컨텐츠 내용
+- 자기소개
+- 나의장점
+- 교육 및 직무역량
+- 지원동기
+- Information Card
+  - About Me
+  - Activities
+  - Education & Study
+  - Work
+- Skills (기술설명 탭 + 한눈에 보기 탭)
+- 기술 블로그(JSUOP 크롤링 + Ajax) 
+
 ## 주요 기능
 ### 블로그 JSOP 크롤링
 보다 빠른 크롤링 작업을 수행하기 위해 JSOUP 라이브러리를 사용하여 제 개인블로그 정적 데이터만을 불러오고자 구현하였습니다.
