@@ -1,6 +1,6 @@
 # Resume
 ## 박민영의 이력서입니다.
-### SpringBoot(JDK 17) / JSOUP / Ajax / AWS(EC2+RDS)
+SpringBoot(JDK 17) / JSOUP / Ajax / AWS(EC2+RDS)
 <br>
 
 ## ⌛개발기간
