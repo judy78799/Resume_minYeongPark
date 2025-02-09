@@ -47,7 +47,7 @@
 
   <div style="display:flex;">  
   <h2>library</h2>
-  <img src="https://img.shields.io/badge/mariadb-003545?style=flat&logo=mariadb&logoColor=#white"/>
+  <img src="https://img.shields.io/badge/mysql-003545?style=flat&logo=mysql&logoColor=#white"/>
   <img src="https://img.shields.io/badge/thymeleaf-005F0F?style=flat&logo=Thymeleaf&logoColor=#white"/>
   <img src="https://img.shields.io/badge/git-F05032?style=flat&logo=git&logoColor=#white"/>
 
