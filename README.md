@@ -62,7 +62,7 @@
   - Education & Study
   - Work
 - Skills (기술설명 탭 + 한눈에 보기 탭)
-- 기술 블로그(JSUOP 크롤링 + Ajax) 
+- 기술 블로그(JSOUP 크롤링 + Ajax) 
 
 ## 주요 기능
 ### 블로그 JSOP 크롤링
