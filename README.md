@@ -1,5 +1,5 @@
 # ✏️Resume
-SpringBoot(JDK 17) / JSOUP / Ajax / AWS(EC2+RDS)
+SpringBoot(JDK 17) / JSOUP / Ajax / AWS(EC2+RDS) 배포
 <br>
 
 ## ⌛개발기간
