@@ -69,52 +69,36 @@ public class BlogsService {
   public List<BlogsDTO> getBlogsDatas() throws IOException {
     int pageNumber = 1;
     int blogCount = 0; // 가져온 블로그 수를 카운트
-    // 반환할 BlogsDTO 리스트 생성
-    List<BlogsDTO> blogsList = new ArrayList<>();
+    List<BlogsDTO> blogsList = new ArrayList<>(); // 반환할 BlogsDTO 리스트 생성
     try {
       while (true) {
         Document document = Jsoup.connect(Blogs_URL + "?page=" + pageNumber).get();
-
-        //블로그 리스트 덩어리 한개
-        //Elements contents = document.select("div.area-common div.article-content");
         //이미지를 못가져와서 해보는 테스트
         Elements contents = document.select("div.area-common article.article-type-common");
-
-        //int Blog_size = Math.min(contents.size(), 4); // contents의 크기와 4 중 작은 값 선택
         Elements content_element_substring = document.select("p.summary"); // 크롤링한 텍스트 가져오기
-
+        //재귀 알고리즘으로 가능할까?
         // 가져온 글이 없으면 종료
         if (contents.isEmpty()) {
           break;
         }
-          if (blogCount >= 12) {
-            break;
-          }
-
+        if (blogCount >= 12) {
+          break;
+        }
         System.out.println("JSOUP contents 전체 사이즈는?" + contents.size());
         //콘텐츠의 크기만큼 가져오기
         for (int i = 0; i < contents.size(); i++) {
-          // 12개를 초과하면 종료
-//          if (blogCount >= 12) {
-//            break;
-//          }
-
           Element content = contents.get(i); // i번째 요소 가져오기
-          //String style = content.select("a.link-article[data-tiara-image]").attr("abs:data-tiara-image").text();
           String style = content.select("a.link-article").attr("data-tiara-image");
           String content_element_string = document.select("p.summary").text();
           Element each_content = content_element_substring.get(i);
           // 크롤링한 콘텐츠 텍스트 가져오기
           String content_element = each_content.text();
-
           System.out.println("스타일 값을 가져오는가? : " + style);
-
-          //각각의 콘텐츠 길이 확인 및 자르기
+        //각각의 콘텐츠 길이 확인 및 자르기
         String subStringElement = content_element.length() > 100
             ? content_element.substring(0, 100)
             : content_element; // 길이 확인 후 자르기
 
-          //System.out.println("스타일 값을 가져오는가? : " + style);
           BlogsDTO blogs = BlogsDTO.builder()
               .image(style) // style 속성 가져오기) // 이미지 URL
               .url(content.select("a").attr("abs:href"))
@@ -122,18 +106,14 @@ public class BlogsService {
               .content(subStringElement)
               .date(content.select("span.date").text())
               .build();
-
           blogsList.add(blogs);
           blogCount++; // 블로그 수를 증가시킵니다.
         }
-        //System.out.println("for 문 밖에서 값을 가져오는가? : "+ contents.select("p.thumbnail").attr("style"));
         pageNumber++;
       }
     }catch (IOException e) {
-      // 예외 처리 로직.
       logger.error("Error while crawling blogs: {}", e.getMessage());
-      // 예외가 발생했을 경우 빈 리스트를 반환할 수 있음.
-      return Collections.emptyList();
+      return Collections.emptyList(); // 예외가 발생했을 경우 빈 리스트를 반환할 수 있음.
     }
     return blogsList;
 }

@@ -9,14 +9,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.io.IOException;
 import java.util.List;
 
-//블로그 한 페이지 당 10개 이므로 10개를 가져오면 성공!
+
 @SpringBootTest
 public class CrawlingServiceTest {
   @Autowired
   private BlogsService blogService;
   @Test
   public void t1() throws Exception {
-    List<BlogsDTO> list = blogService.getBlogsDatas();
+    List<BlogsDTO> list = blogService.getBlogsDatas();  //Jsoup 크롤링
 
     for(BlogsDTO data:list){
       System.out.println("블로그 url:" + data.getUrl());

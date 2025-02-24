@@ -105,6 +105,7 @@
     width:100%;
     height:20vw;
     /*background-color:blue;*/
+    margin-top:2vw;
     margin-bottom:2vw;
 }
 .project_wrap{
@@ -207,12 +208,12 @@ hr{
 }
 .blogs_box{
     width:100%;
-    height:20vw;
-    margin-top:1vw;
+    height:23vw;
+    margin-top:3vw;
 }
 .blogs_wrap{
     width:100%;
-    height:18VW;
+    height:20VW;
 }
 #blog-container{
     display:flex;
@@ -287,8 +288,8 @@ hr{
     display:flex;
     align-items:center;
     width:15vw;
-    height:2vw;
-    margin:0 auto;
+    height:3vw;
+    margin:0vw auto;
 }
 .pagination{
     display:flex;
@@ -315,7 +316,7 @@ hr{
 #base64Results{
     width:100%;
     height:13vw;
-    margin: 0 auto;
+    margin: 2vw auto;
 }
 #nameInput{
     width:50vw;

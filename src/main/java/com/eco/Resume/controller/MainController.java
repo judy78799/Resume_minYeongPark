@@ -108,6 +108,7 @@ public class MainController {
       textVal = jsonResponse.get("text").asText(); // JSON 응답에서 text 키에 해당하는 값, 즉 Base64로 인코딩된 이미지 데이터를 나타냄. AAA...
 
       // 올바른 형식으로 변환 브라우저에 이미지로 보여지기 위해 "data:image/png;base64," 접두사를 추가
+      //추가한 접두사임 data:image/png;base64
       String base64Image = "data:image/png;base64," + imgBase64; // PNG 형식으로 가정
 
       // 만약 JSON 응답이 null이라면, 각각 키 값을 확인.
